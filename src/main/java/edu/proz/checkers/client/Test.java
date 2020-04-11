@@ -1,6 +1,7 @@
 package edu.proz.checkers.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.proz.checkers.infrastructure.*;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -17,7 +18,9 @@ public class Test {
   "*exit*"};
 
   public void run() {
-
+	  
+	ObjectMapper mapper = new ObjectMapper();  
+	Move move = new Move(10,20);
     logger("Starting MySelectorClientExample...");
     try {
       int port = 9999;
@@ -28,9 +31,10 @@ public class Test {
 
       logger(String.format("Trying to connect to %s:%d...",
               myAddress.getHostName(), myAddress.getPort()));
-
+      
+      
       for (String msg: messages) {
-        ByteBuffer myBuffer=ByteBuffer.allocate(BUFFER_SIZE);
+    	ByteBuffer myBuffer=ByteBuffer.allocate(BUFFER_SIZE);
         myBuffer.put(msg.getBytes());
         myBuffer.flip();
         int bytesWritten = myClient.write(myBuffer);
@@ -38,8 +42,22 @@ public class Test {
               .format("Sending Message...: %s\nbytesWritten...: %d",
                       msg, bytesWritten));
      }
+      String jsonString = mapper.writeValueAsString(move);
+
+      System.out.println(jsonString);
+      ByteBuffer myBuffer=ByteBuffer.allocate(jsonString.length() + BUFFER_SIZE);
+      myBuffer.put(jsonString.getBytes());
+      myBuffer.flip();
+      int bytesWritten = myClient.write(myBuffer);
+      logger(String
+            .format("Sending Message...: %s\nbytesWritten...: %d",
+                    jsonString, bytesWritten));
+      
       logger("Closing Client connection...");
       myClient.close();
+      
+      Move move2 = mapper.readValue(jsonString, Move.class);
+      logger(String.format("po konwersji json do move %d,  %d", move2.getFrom(), move2.getTo()));
     } catch (IOException e) {
       logger(e.getMessage());
       e.printStackTrace();
