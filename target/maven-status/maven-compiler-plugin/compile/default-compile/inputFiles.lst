@@ -1,4 +1,14 @@
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/Main.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/server/TestS.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/TestQueue.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/controller/GameController.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/Test.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Move.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/Util.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Message.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/infrastructure/ConnectionController.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Stop.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/ClientApp.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Response.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Start.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Request.java

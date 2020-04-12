@@ -10,14 +10,14 @@ public class Main {
 		System.out.println("Hello, World");
 		System.out.printf("%s\n",args[0]);
 		
-		if( args[0].equals("client")) {
+		if( args[0].equals("client")) { //wolanie clientapp
 			Test client = new Test();
 			client.run();
-		}else {
+		}else { //wolanie serverapp
 			TestS server = new TestS();
 			server.run();
 		}
-
+		
 	}
 
 }
