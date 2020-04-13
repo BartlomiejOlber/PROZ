@@ -58,49 +58,49 @@ public class TestS {
 		  }
 }
 
- private void processAcceptEvent(ServerSocketChannel mySocket,
-                  SelectionKey key) throws IOException {
-
-	  logger("Connection Accepted...");
-	  // Accept the connection and make it non-blocking
-	  SocketChannel myClient = mySocket.accept();
-	  myClient.configureBlocking(false);
+	 private void processAcceptEvent(ServerSocketChannel mySocket,
+	                  SelectionKey key) throws IOException {
 	
-	  // Register interest in reading this channel
-	  myClient.register(selector, SelectionKey.OP_READ);
- }
-
- private void processReadEvent(SelectionKey key)
-                      throws IOException {
-	 String msg = new String("standardowa odpowiedz servwera");
-	  logger("Inside processReadEvent...");
-	  // create a ServerSocketChannel to read the request
-	  SocketChannel myClient = (SocketChannel) key.channel();
+		  logger("Connection Accepted...");
+		  // Accept the connection and make it non-blocking
+		  SocketChannel myClient = mySocket.accept();
+		  myClient.configureBlocking(false);
+		
+		  // Register interest in reading this channel
+		  myClient.register(selector, SelectionKey.OP_READ);
+	 }
 	
-	  // Set up out 1k buffer to read data into
-	  
-	  ByteBuffer readBuffer = ByteBuffer.allocate(BUFFER_SIZE);
-	  ByteBuffer writeBuffer = ByteBuffer.allocate(BUFFER_SIZE);
-	  myClient.read(readBuffer);
-	  readBuffer.flip();
-	  String data = bytes_to_string(readBuffer);
-	  if (data.length() > 0) {
-		   logger(String.format("Message Received.....: %s   dlugosc %d\n", data, data.length()));
-		   if(data.equals("potwierdz"))
-		   		msg = new String("potwiedzam");
-		   if(data.equals("zaprzecz"))
-	   			msg = new String("zaprzecam");
-		   
-		   
-	        writeBuffer.put(msg.getBytes());
-	        writeBuffer.flip();
-	        myClient.write(writeBuffer);   
-		   if (data.equalsIgnoreCase("*exit*")) {
-			    myClient.close();
-			    logger("Closing Server Connection...");
-		   }
-	  }
- }
+	 private void processReadEvent(SelectionKey key)
+	                      throws IOException {
+		 String msg = new String("standardowa odpowiedz servwera");
+		  logger("Inside processReadEvent...");
+		  // create a ServerSocketChannel to read the request
+		  SocketChannel myClient = (SocketChannel) key.channel();
+		
+		  // Set up out 1k buffer to read data into
+		  
+		  ByteBuffer readBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+		  ByteBuffer writeBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+		  myClient.read(readBuffer);
+		  readBuffer.flip();
+		  String data = bytes_to_string(readBuffer);
+		  if (data.length() > 0) {
+			   logger(String.format("Message Received.....: %s   dlugosc %d\n", data, data.length()));
+			   if(data.equals("potwierdz"))
+			   		msg = new String("potwiedzam");
+			   if(data.equals("zaprzecz"))
+		   			msg = new String("zaprzecam");
+			   
+			   
+		        writeBuffer.put(msg.getBytes());
+		        writeBuffer.flip();
+		        myClient.write(writeBuffer);   
+			   if (data.equalsIgnoreCase("*exit*")) {
+				    myClient.close();
+				    logger("Closing Server Connection...");
+			   }
+		  }
+	 }
 
 	private String bytes_to_string( ByteBuffer bb ) {
 		byte[] b = new byte[bb.limit()];

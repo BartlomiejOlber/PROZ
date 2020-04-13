@@ -8,26 +8,63 @@ import java.util.HashMap;
 
 import edu.proz.checkers.infrastructure.*;
 
-interface Command {
-	
+interface Command {	
 	void process( Message msg );
 }
 
 
 public class GameController implements Runnable {
 	
-	private final int QUEUE_CAPACITY = 16;
-	private boolean endGame = false;
-	private BlockingQueue<Request> requestQueue = null;
-	private BlockingQueue<Response> responseQueue = null;
-	private Map<String, Command> methodMap = null;
+	private final static int QUEUE_CAPACITY = 16;
+	private boolean endGame;
+	private BlockingQueue<Request> requestQueue;
+	private BlockingQueue<Response> responseQueue;
+	private Map<String, Command> methodMap;
 	
-	class CommandStart implements Command
+	private boolean waiting;
+	
+	private class CommandStartResponse implements Command
 	{
 		public void process( Message m)
 		{
-			Start start = (Start) m;
-			processStart(start);
+			StartResponse start = (StartResponse) m;
+			processStartResponse(start);
+		}
+	}
+	
+	private class CommandMoveResponse implements Command
+	{
+		public void process( Message m)
+		{
+			MoveResponse move = (MoveResponse) m;
+			processMoveResponse(move);
+		}
+	}
+	
+	private class CommandStopResponse implements Command
+	{
+		public void process( Message m)
+		{
+			StopResponse stop = (StopResponse) m;
+			processStopResponse(stop);
+		}
+	}
+	
+	private class CommandOpponentMovedResponse implements Command
+	{
+		public void process( Message m)
+		{
+			OpponentMovedResponse response = (OpponentMovedResponse) m;
+			processOpponentMovedResponse(response);
+		}
+	}
+	
+	private class CommandWaitResponse implements Command
+	{
+		public void process( Message m)
+		{
+			WaitResponse response = (WaitResponse) m;
+			processWaitResponse(response);
 		}
 	}
 	
@@ -35,7 +72,13 @@ public class GameController implements Runnable {
 		requestQueue = new LinkedBlockingQueue<Request>( QUEUE_CAPACITY );
 		responseQueue = new LinkedBlockingQueue<Response>( QUEUE_CAPACITY );
 		methodMap = new HashMap<String, Command>();
-		methodMap.put(Start.class.getSimpleName(), new CommandStart());
+		methodMap.put(StartResponse.class.getSimpleName(), new CommandStartResponse());
+		methodMap.put(MoveResponse.class.getSimpleName(), new CommandMoveResponse());
+		methodMap.put(StopResponse.class.getSimpleName(), new CommandStopResponse());
+		methodMap.put(WaitResponse.class.getSimpleName(), new CommandWaitResponse());
+		methodMap.put(OpponentMovedResponse.class.getSimpleName(), new CommandOpponentMovedResponse());
+		endGame = false;
+		waiting = false;
 	}
 	
 	public BlockingQueue<Request>  getRequestQueue (){
@@ -46,55 +89,74 @@ public class GameController implements Runnable {
 		return this.responseQueue;
 	}
 	
-	private void processStart( Start msg) {
+	private void processStartResponse( StartResponse msg) {
 		
 	}
 	
+	private void processMoveResponse( MoveResponse msg) {
+		
+	}
+	
+	private void processStopResponse( StopResponse msg) {
+		
+	}
+
+	private void processWaitResponse( WaitResponse msg) {
+		
+	}
+	
+	private void processOpponentMovedResponse( OpponentMovedResponse msg) {
+		
+	}
+	
+	@Override 
 	public void run( ) {
 		while( !endGame ) {
-		//	processRequest();
-			processResponse();
-			
+			try {
+				if(waiting)
+					askForOpponent();
+				processResponse();
+			}catch(Exception e) {
+				
+			}
 		}
 	}
 	
-/*	private void processRequest() {
-		try{
-			Start msg = null;
-			msg =(Start) requestQueue.poll(1, TimeUnit.SECONDS);
-			if( msg != null ) {
-				System.out.printf(" request taken id:%d \n ", msg.getId());
-			}
-			
-			
-		}catch( InterruptedException e) {
-			
-		}
-
+	private void askForOpponent() throws InterruptedException{
+		
+		GetOpponentEvent request = new GetOpponentEvent();
+		requestQueue.add(request);
+		
 	}
-	*/
+
+	
 	//called by a listener
 	public void makeMove( int from, int to ) {
 		Move move = new Move( from, to );
 		requestQueue.add(move);	
 	}
 	
-	private void processResponse() {
-		try {
-			Response msg = null;
-			msg =responseQueue.poll(1, TimeUnit.SECONDS);
-			if( msg != null ) {
-				System.out.printf(" response taken id:%d \n ", msg.getId());
-				methodMap.get( msg.getClass().getSimpleName() ).process( msg );
-				//kilka sprawdzen 
-				//update z reapaintem paneli
-				
-			}
-			
-			
-		}catch( InterruptedException e) {
+	public void makeStart( String player_name ) {
+		
+		Start start = new Start( player_name );
+		requestQueue.add(start);
+	}
+	
+	public void makeStop( ) {
+		
+		Stop stop = new Stop(  );
+		requestQueue.add(stop);
+	}
+	
+	private void processResponse() throws InterruptedException {
+		
+		Response msg = null;
+		msg =responseQueue.poll(1, TimeUnit.SECONDS);
+		if( msg != null ) {
+			methodMap.get( msg.getClass().getSimpleName() ).process( msg );
 			
 		}
+
 
 	}
 	
