@@ -9,7 +9,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = Move.class, name = "Move"),
-    @JsonSubTypes.Type(value = MoveResponse.class, name = "MoveResponse"),
+    @JsonSubTypes.Type(value = OpponentMovedResponse.class, name = "OpponentMovedResponse"),
+    @JsonSubTypes.Type(value = WaitResponse.class, name = "WaitResponse"),
     @JsonSubTypes.Type(value = Start.class, name = "Start"),
     @JsonSubTypes.Type(value = StartResponse.class, name = "StartResponse"),
     @JsonSubTypes.Type(value = Stop.class, name = "Stop"),
@@ -17,5 +18,15 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     }
 )
 public abstract class Message {
-
+	private int playerId;
+	public Message( int playerId ) {
+		this.playerId = playerId;
+	}
+	public int getPlayerId() {
+		return playerId;
+	}
+	public void setPlayerId(int playerId) {
+		this.playerId = playerId;
+	}
+	
 }

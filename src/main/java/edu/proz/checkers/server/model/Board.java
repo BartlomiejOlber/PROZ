@@ -1,11 +1,11 @@
 package edu.proz.checkers.server.model;
 
-public class Game {
+public class Board {
 	
 	private static final int SIZE = 8;
 	private Square[][] board;
 	
-	public Game(){
+	public Board(){
 		board = new Square[SIZE][SIZE];
 		
 		initBoard();
@@ -23,6 +23,11 @@ public class Game {
 				count++;
 			}
 		}	
+	}
+	
+	public Square getSquare( int index ) {
+		
+		return board[index/SIZE][index%SIZE];
 	}
 	
 	public boolean isOn(){

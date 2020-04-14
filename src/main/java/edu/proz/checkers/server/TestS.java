@@ -35,8 +35,10 @@ public class TestS {
 			   myServerSocketChannel.configureBlocking(false);
 			   int ops = myServerSocketChannel.validOps();
 			   myServerSocketChannel.register(selector, ops, null);
+			   int selection_count = 0;
 			   while (true) {
-				
+				   selection_count++;
+				    System.out.printf("selekcja numer %d", selection_count );
 				    selector.select();
 				    Set<SelectionKey> selectedKeys = selector.selectedKeys();
 				    Iterator<SelectionKey> i = selectedKeys.iterator();
@@ -68,6 +70,18 @@ public class TestS {
 		
 		  // Register interest in reading this channel
 		  myClient.register(selector, SelectionKey.OP_READ);
+			 String msg = new String("standardowa odpowiedz servwera");
+			  logger("Inside processReadEvent...");
+			  // create a ServerSocketChannel to read the request
+			
+			
+			  // Set up out 1k buffer to read data into
+			  
+			  ByteBuffer readBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+			  ByteBuffer writeBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+		        writeBuffer.put(msg.getBytes());
+		        writeBuffer.flip();
+		        myClient.write(writeBuffer);  
 	 }
 	
 	 private void processReadEvent(SelectionKey key)
@@ -92,9 +106,9 @@ public class TestS {
 		   			msg = new String("zaprzecam");
 			   
 			   
-		        writeBuffer.put(msg.getBytes());
-		        writeBuffer.flip();
-		        myClient.write(writeBuffer);   
+	//	        writeBuffer.put(msg.getBytes());
+		//        writeBuffer.flip();
+		  //      myClient.write(writeBuffer);   
 			   if (data.equalsIgnoreCase("*exit*")) {
 				    myClient.close();
 				    logger("Closing Server Connection...");

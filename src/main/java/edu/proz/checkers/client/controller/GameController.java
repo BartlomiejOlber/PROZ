@@ -32,14 +32,6 @@ public class GameController implements Runnable {
 		}
 	}
 	
-	private class CommandMoveResponse implements Command
-	{
-		public void process( Message m)
-		{
-			MoveResponse move = (MoveResponse) m;
-			processMoveResponse(move);
-		}
-	}
 	
 	private class CommandStopResponse implements Command
 	{
@@ -73,7 +65,6 @@ public class GameController implements Runnable {
 		responseQueue = new LinkedBlockingQueue<Response>( QUEUE_CAPACITY );
 		methodMap = new HashMap<String, Command>();
 		methodMap.put(StartResponse.class.getSimpleName(), new CommandStartResponse());
-		methodMap.put(MoveResponse.class.getSimpleName(), new CommandMoveResponse());
 		methodMap.put(StopResponse.class.getSimpleName(), new CommandStopResponse());
 		methodMap.put(WaitResponse.class.getSimpleName(), new CommandWaitResponse());
 		methodMap.put(OpponentMovedResponse.class.getSimpleName(), new CommandOpponentMovedResponse());
@@ -93,9 +84,6 @@ public class GameController implements Runnable {
 		
 	}
 	
-	private void processMoveResponse( MoveResponse msg) {
-		
-	}
 	
 	private void processStopResponse( StopResponse msg) {
 		
@@ -124,7 +112,7 @@ public class GameController implements Runnable {
 	
 	private void askForOpponent() throws InterruptedException{
 		
-		GetOpponentEvent request = new GetOpponentEvent();
+		GetOpponentEvent request = new GetOpponentEvent(player.getPlayerId());
 		requestQueue.add(request);
 		
 	}
@@ -132,19 +120,19 @@ public class GameController implements Runnable {
 	
 	//called by a listener
 	public void makeMove( int from, int to ) {
-		Move move = new Move( from, to );
+		Move move = new Move( player.getPlayerId(),from, to );
 		requestQueue.add(move);	
 	}
 	
-	public void makeStart( String player_name ) {
+	public void makeStart( ) {
 		
-		Start start = new Start( player_name );
+		Start start = new Start( player.getPlayerId() );
 		requestQueue.add(start);
 	}
 	
 	public void makeStop( ) {
 		
-		Stop stop = new Stop(  );
+		Stop stop = new Stop( player.getPlayerId()  );
 		requestQueue.add(stop);
 	}
 	

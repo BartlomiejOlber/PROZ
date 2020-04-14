@@ -26,7 +26,7 @@ public class Test {
 		ByteBuffer readBuffer=ByteBuffer.allocate(BUFFER_SIZE);
 		ByteBuffer writeBuffer=ByteBuffer.allocate(BUFFER_SIZE);
 		ObjectMapper mapper = new ObjectMapper();  
-		Move move = new Move(10,20);
+	
 	    logger("Starting MySelectorClientExample...");
 	    try {
 		      int port = 9996;
@@ -49,9 +49,7 @@ public class Test {
 				    scan.nextLine();
 				    System.out.println("msg pls");
 				    String msg = scan.nextLine();
-			        writeBuffer.put(msg.getBytes());
-			        writeBuffer.flip();
-			        myClientSocketChannel.write(writeBuffer);
+
 			        selector.select();
 				    Set<SelectionKey> selectedKeys = selector.selectedKeys();
 				    Iterator<SelectionKey> i = selectedKeys.iterator();
@@ -68,6 +66,9 @@ public class Test {
 								   logger(String.format("Message Received.....: %s  dlugosc %d\n", data,data.length()));
 								   end_loop = true;
 							  }
+						        writeBuffer.put(msg.getBytes());
+						        writeBuffer.flip();
+						        myClientSocketChannel.write(writeBuffer);
 					     }
 					     i.remove();
 				    }
@@ -76,9 +77,9 @@ public class Test {
 				    
 			   }
 			   scan.close();
-		      String jsonString = mapper.writeValueAsString(move);
+		    
 		
-		      System.out.println(jsonString);
+		      
 		      //myBuffer.put(jsonString.getBytes());
 		      //myBuffer.flip();
 		      //int bytesWritten = myClientSocketChannel.write(myBuffer);
@@ -86,8 +87,6 @@ public class Test {
 		      logger("Closing Client connection...");
 		      myClientSocketChannel.close();
 		      
-		      Move move2 = mapper.readValue(jsonString, Move.class);
-		      logger(String.format("po konwersji json do move %d,  %d", move2.getFrom(), move2.getTo()));
 	    } catch (IOException e) {
 		      logger(e.getMessage());
 		      e.printStackTrace();

@@ -3,17 +3,22 @@ package edu.proz.checkers.infrastructure;
 
 //transfer data object
 public class Move extends Request {
-	//private String operation;
+	
 	private int from;
 	private int to;
 	
-	public Move() {
+
+	public Move(int playerId) {
+		super(playerId);
+		
 	}
 	
-	public Move( int from, int to ) {
+	public Move(int playerId, int from, int to) {
+		super(playerId);
 		this.from = from;
 		this.to = to;
 	}
+	
 	public int getFrom() {
 		return from;
 	}

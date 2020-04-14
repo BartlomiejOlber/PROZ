@@ -2,13 +2,10 @@ package edu.proz.checkers.infrastructure;
 
 public class Start extends Request {
 	
-	private String myName;
-	
-	public Start( String name ){
-		this.myName = name;
+	public Start(int playerId) {
+		super(playerId);
+		// TODO Auto-generated constructor stub
 	}
-	public String getName() {
-		return myName;
-	}
+
 
 }
