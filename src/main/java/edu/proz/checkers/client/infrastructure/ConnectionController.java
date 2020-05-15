@@ -30,11 +30,12 @@ public class ConnectionController implements Runnable {
 	ObjectMapper mapper; //json parser
 	private boolean endConnection;
 	
-	public ConnectionController( BlockingQueue<Request> requestQueue, BlockingQueue<Response> responseQueue ) {
+	public ConnectionController( BlockingQueue<Request> requestQueue, BlockingQueue<Response> responseQueue, int port ) {
 		this.requestQueue = requestQueue;
 		this.responseQueue = responseQueue;
 		mapper = new ObjectMapper();
 		endConnection = false;
+		this.port = port;
 		
 	}
 	
@@ -55,8 +56,6 @@ public class ConnectionController implements Runnable {
 	
 	
 	private void establishConnection() throws IOException {
-		
-	      //int port = 9996;
 		
 	      InetAddress hostIP = InetAddress.getLocalHost();
 	      InetSocketAddress myAddress = new InetSocketAddress(hostIP, port);

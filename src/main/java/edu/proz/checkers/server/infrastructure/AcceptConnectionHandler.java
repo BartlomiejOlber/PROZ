@@ -38,16 +38,17 @@ public class AcceptConnectionHandler {
 	
 	private void init() throws IOException {
 		
-		   InetAddress hostIP = InetAddress.getLocalHost();
-		   selector = Selector.open();
-		   myServerSocketChannel = ServerSocketChannel.open();
-		   ServerSocket serverSocket = myServerSocketChannel.socket();
-		   InetSocketAddress address = new InetSocketAddress(hostIP, port);
-		   serverSocket.bind(address);
-		   myServerSocketChannel.configureBlocking(false);
-		   int ops = myServerSocketChannel.validOps();
-		   myServerSocketChannel.register(selector, ops, null);
-		   
+		port = 9999;
+	    InetAddress hostIP = InetAddress.getLocalHost();
+	    selector = Selector.open();
+	    myServerSocketChannel = ServerSocketChannel.open();
+	    ServerSocket serverSocket = myServerSocketChannel.socket();
+	    InetSocketAddress address = new InetSocketAddress(hostIP, port);
+	    serverSocket.bind(address);
+	    myServerSocketChannel.configureBlocking(false);
+	    int ops = myServerSocketChannel.validOps();
+	    myServerSocketChannel.register(selector, ops, null);
+   
 	}
 	
 	public SocketChannel accept() throws IOException {
