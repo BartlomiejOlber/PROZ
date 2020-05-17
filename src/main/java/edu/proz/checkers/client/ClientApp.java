@@ -7,6 +7,7 @@ import edu.proz.checkers.client.model.Player;
 public class ClientApp {
 	
 	private int port;
+	Player player;
 	
 	public ClientApp() {
 		
@@ -15,25 +16,29 @@ public class ClientApp {
 	}
 
 	private void init() {
-		Player player = null;
+		
 		
 		//---------
 		GameController gc = new GameController( player );
 		ConnectionController cc = new ConnectionController( gc.getRequestQueue(), gc.getResponseQueue(), port );
-		//setup(gc);
+		try {
+			gc.makeStart();
+			cc.establishConnection();
+			cc.processRequest();
+			gc.processResponse();
+		}catch(Exception e ) {
+			
+		}
+		
+		setListeners(gc);
 		new Thread( cc ).start();
 		new Thread( gc ).start();
 		
 	}
 	
-	/*
-	private void setup(Controller c) {
-		MyMouseListener listener = new MyMouseListener();
-		listener.setController(c);
-
-		boardPanel = new BoardPanel(listener);
-		c.setBoardPanel(boardPanel);
-		add(boardPanel);
+	
+	private void setListeners(GameController gc) {
+	
 	}
-	*/
+	
 }

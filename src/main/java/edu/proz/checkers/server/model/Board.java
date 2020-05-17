@@ -17,8 +17,8 @@ public class Board {
 		int playerId = 0;
 		for(int row=0;row<SIZE;row++){	
 			for(int column=0;column<SIZE;column++){
-				playerId = (count% 2 == 0 && row < 3) ? 1  : 0 ;
-				playerId = (count% 2 == 0 && row > 4) ? 2  : 0 ;
+				playerId = ((count% 2 == 1) && (row < 3)) ? 1  : 0 ;
+				playerId = ((count% 2 == 1) && (row > 4)) ? 2  : playerId ;
 				board[row][column] = new Square( row, column, playerId, count);
 				count++;
 			}

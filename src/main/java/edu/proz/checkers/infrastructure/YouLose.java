@@ -3,7 +3,7 @@ package edu.proz.checkers.infrastructure;
 public class YouLose extends Response {
 
 	public YouLose(int playerId, int from, int to) {
-		super(playerId);
+		setPlayerId(playerId);
 		this.from = from;
 		this.to = to;
 	}
@@ -11,7 +11,8 @@ public class YouLose extends Response {
 	private int from;
 	private int to;
 	
-
+	public YouLose() {}
+	
 	public int getFrom() {
 		return from;
 	}

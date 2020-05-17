@@ -8,16 +8,7 @@ public class Move extends Request {
 	private int to;
 	
 
-	public Move(int playerId) {
-		super(playerId);
-		
-	}
-	
-	public Move(int playerId, int from, int to) {
-		super(playerId);
-		this.from = from;
-		this.to = to;
-	}
+	public Move() {}
 	
 	public int getFrom() {
 		return from;

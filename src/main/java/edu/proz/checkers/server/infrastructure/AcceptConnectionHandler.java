@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
-import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
@@ -12,17 +11,8 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import edu.proz.checkers.Util;
-import edu.proz.checkers.server.controller.*;
-import edu.proz.checkers.infrastructure.Request;
-import edu.proz.checkers.infrastructure.Response;
-
 public class AcceptConnectionHandler {
 	
-	
-
 	private int port; 
 	private static Selector selector;
 	ServerSocketChannel myServerSocketChannel;
@@ -52,24 +42,18 @@ public class AcceptConnectionHandler {
 	}
 	
 	public SocketChannel accept() throws IOException {
-
+		
 	    selector.select();
 	    Set<SelectionKey> selectedKeys = selector.selectedKeys();
-	    Iterator<SelectionKey> i = selectedKeys.iterator();
-	
-	    while (i.hasNext()) {
-		     SelectionKey key = i.next();
+	    Iterator<SelectionKey> i = selectedKeys.iterator();		
+		SelectionKey key = i.next();	
+		if (key.isAcceptable()) {
+			SocketChannel myClient = myServerSocketChannel.accept();
+			myClient.configureBlocking(false);
+			return myClient;		 
+		 }
 		
-		     if (key.isAcceptable()) {
-				 SocketChannel myClient = myServerSocketChannel.accept();
-				 myClient.configureBlocking(false);
-				 myClient.register(selector, SelectionKey.OP_READ);
-				 return myClient;
-				 
-		     }
-		     i.remove();
-	    
-	    }
+		i.remove();
 	    return null;		
 	
 	}

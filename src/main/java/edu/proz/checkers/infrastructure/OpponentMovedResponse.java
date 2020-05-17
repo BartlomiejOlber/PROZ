@@ -5,8 +5,10 @@ public class OpponentMovedResponse extends Response {
 	private int from;
 	private int to;
 	
+	public OpponentMovedResponse() {}
+	
 	public OpponentMovedResponse(int playerId, int from, int to) {
-		super(playerId);
+		setPlayerId(playerId);
 		this.from = from;
 		this.to = to;
 	}

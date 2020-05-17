@@ -43,7 +43,6 @@ public class ConnectionController implements Runnable {
 	public void run() {
 		
 		try {
-			establishConnection();
 			while( !endConnection ) {
 
 					processRequest();
@@ -55,7 +54,7 @@ public class ConnectionController implements Runnable {
 	}
 	
 	
-	private void establishConnection() throws IOException {
+	public void establishConnection() throws IOException {
 		
 	      InetAddress hostIP = InetAddress.getLocalHost();
 	      InetSocketAddress myAddress = new InetSocketAddress(hostIP, port);
@@ -75,14 +74,11 @@ public class ConnectionController implements Runnable {
 
 	    while (i.hasNext()) {
 		     SelectionKey key = i.next();			
-		     if (key.isReadable()) {
-		    	 
+		     if (key.isReadable()) {	    	 
 				  myClientSocketChannel.read(readBuffer);
 				  readBuffer.flip();
-				  String data = Util.bytes_to_string(readBuffer);
-				  
+				  String data = Util.bytes_to_string(readBuffer);				  
 				  if (data.length() > 0) {
-					   System.out.println(String.format("Message Received.....: %s  dlugosc %d\n", data,data.length()));
 					   return data;
 				  }
 		     }
@@ -113,13 +109,12 @@ public class ConnectionController implements Runnable {
 	}
 	
 	
-	private void processRequest() throws IOException, InterruptedException {
+	public void processRequest() throws IOException, InterruptedException {
 		
 
 		Request msg = null;
 		msg = requestQueue.poll(1, TimeUnit.SECONDS);
 		if( msg != null ) {
-			//System.out.printf(" request taken id:%d \n ", msg.getId());
 			exchangeMessages(msg);
 		}		
 

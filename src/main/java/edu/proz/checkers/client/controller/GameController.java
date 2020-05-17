@@ -106,6 +106,7 @@ public class GameController implements Runnable {
 		//--------------------------
 		waitingForAction = false;
 		gameOver=false;
+		player.setIsMyTurn(true);
 		this.player = player;
 	}
 	
@@ -168,9 +169,7 @@ public class GameController implements Runnable {
 	
 	@Override 
 	public void run( ) {
-		
-		makeStart();
-		
+
 		while( !gameOver ) {
 			try {
 				
@@ -208,7 +207,7 @@ public class GameController implements Runnable {
 		requestQueue.add(move);	
 	}
 	
-	private void makeStart( ) {
+	public void makeStart( ) {
 		
 		Start start = new Start( 0 );
 		requestQueue.add(start);
@@ -221,7 +220,7 @@ public class GameController implements Runnable {
 		requestQueue.add(stop);
 	}
 	
-	private void processResponse() throws InterruptedException {
+	public void processResponse() throws InterruptedException {
 		
 		Response msg = null;
 		msg =responseQueue.poll(1, TimeUnit.SECONDS);

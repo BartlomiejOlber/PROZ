@@ -154,7 +154,7 @@ public class SessionController implements Runnable{
 				
 			}else {
 				
-				response = new YouLose(msg.getPlayerId());
+				response = new YouLose(msg.getPlayerId(), from, to);
 			}
 			
 		}else {

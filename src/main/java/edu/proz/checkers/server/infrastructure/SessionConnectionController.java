@@ -18,23 +18,22 @@ import edu.proz.checkers.infrastructure.*;
 public class SessionConnectionController {
 	
 	Selector selector;
-	private Map<Integer, SocketChannel> clients;
-	
-	
-	ObjectMapper mapper; //json parser
-	
+	private Map<Integer, SocketChannel> clients;	
+	ObjectMapper mapper; //json parser	
 	private static final int BUFFER_SIZE = 128;
 	
-
-	
-	public SessionConnectionController( SocketChannel clientOne, SocketChannel clientTwo ) throws IOException {
+	public SessionConnectionController()  throws IOException {
 		
 		clients = new HashMap<Integer, SocketChannel>();
-		clients.put(1, clientOne);
-		clients.put(2, clientTwo);	
-		clientOne.register(selector, SelectionKey.OP_READ);
-		clientTwo.register(selector, SelectionKey.OP_READ);
+		selector = Selector.open();
 		mapper = new ObjectMapper();
+		
+	}
+	
+	public void addClient( SocketChannel client, int client_number )  throws IOException {
+		
+		clients.put(client_number, client);
+		client.register(selector, SelectionKey.OP_READ);
 		
 	}
 	
