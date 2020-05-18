@@ -7,6 +7,9 @@ import java.util.Date;
 
 import javax.swing.*;
 
+import edu.proz.checkers.infrastructure.ConfigParams;
+import edu.proz.checkers.infrastructure.Request;
+import edu.proz.checkers.infrastructure.Response;
 import edu.proz.checkers.server.controller.SessionController;
 import edu.proz.checkers.server.infrastructure.AcceptConnectionHandler;
 import edu.proz.checkers.server.infrastructure.SessionConnectionController;
@@ -22,7 +25,7 @@ public class ServerApp extends JFrame {
 	int sessionNo;
 	private static AcceptConnectionHandler acceptor;
 	
-	public ServerApp(){
+	public ServerApp(ConfigParams params){
 		
 		
 		BorderLayout layout = new BorderLayout();
@@ -35,7 +38,7 @@ public class ServerApp extends JFrame {
 		add(title,BorderLayout.NORTH);
 		add(scroll, BorderLayout.CENTER);
 		
-		acceptor = new AcceptConnectionHandler();
+		acceptor = new AcceptConnectionHandler( params );
 	}	
 	
 	public void start() {
@@ -61,15 +64,10 @@ public class ServerApp extends JFrame {
 				scc.addClient(clientTwo, 2);
 				Request startSecondRequest = scc.getRequest();
 				Response startSecondResponse = newSession.getResponse( startSecondRequest );
-				scc.sendResponse(startSecondResponse);
-				
-				information.append(new Date() + ":- player2 joined at\n");
-				information.append(clientTwo.toString());
-				
-				
+				scc.sendResponse(startSecondResponse);								
 				new Thread(newSession).start();
 			}catch(IOException e) {
-				
+				e.printStackTrace();
 			}
 
 			

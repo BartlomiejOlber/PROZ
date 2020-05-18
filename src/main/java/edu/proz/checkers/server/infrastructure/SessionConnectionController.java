@@ -39,28 +39,37 @@ public class SessionConnectionController {
 	
 	public Request getRequest( ) throws IOException {
 		
-		ByteBuffer readBuffer=ByteBuffer.allocate(BUFFER_SIZE);	
-		String data = null;
-		selector.select();
-	    Set<SelectionKey> selectedKeys = selector.selectedKeys();
-	    Iterator<SelectionKey> i = selectedKeys.iterator();
-
-	    while (i.hasNext()) {
-		     SelectionKey key = i.next();			
-		     if (key.isReadable()) {
-		    	 SocketChannel clientChannel = (SocketChannel) key.channel();	
-				  clientChannel.read(readBuffer);
-				  readBuffer.flip();
-				  data = Util.bytes_to_string(readBuffer);
-				  
-				  if (data.length() > 0) {
-					   System.out.println(String.format("Message Received.....: %s  dlugosc %d\n", data,data.length()));
-				  }
-		     }
-		     i.remove();
-	    }
-		Request request = mapper.readValue(data, Request.class);
-		return request;
+		try {
+			ByteBuffer readBuffer=ByteBuffer.allocate(BUFFER_SIZE);	
+			String data = null;
+			System.out.print("przed select\n");
+			selector.select();
+		    Set<SelectionKey> selectedKeys = selector.selectedKeys();
+		    Iterator<SelectionKey> i = selectedKeys.iterator();
+		    while(true) {
+			    while (i.hasNext()) {
+				     SelectionKey key = i.next();			
+				     if (key.isReadable()) {
+				    	 SocketChannel clientChannel = (SocketChannel) key.channel();	
+						  clientChannel.read(readBuffer);
+						  readBuffer.flip();
+						  data = Util.bytes_to_string(readBuffer);
+						  
+						  if (data.length() > 0) {
+							   System.out.println(String.format("Message Received %s.....: %s \n", data,data.length()));
+							   Request request = mapper.readValue(data, Request.class);
+							   System.out.print(request.getPlayerId());
+							   i.remove();
+							   return request;
+						  }
+				     }
+				 i.remove();    
+			    }
+		    }
+		}catch (IOException e){
+			Stop stop= closeConnections();
+			return stop;
+		}
 	}
 	
 	public void sendResponse( Response response ) throws IOException {
@@ -69,34 +78,23 @@ public class SessionConnectionController {
 		String jsonString = mapper.writeValueAsString( response );
         writeBuffer.put(jsonString.getBytes());
         writeBuffer.flip();
+        System.out.println(String.format("Message sent.....: %s  dlugosc %d\n", jsonString,jsonString.length()));
         clients.get(response.getPlayerId()).write(writeBuffer);  
 	
 	}
 	
-/*	private void processExchange(SelectionKey key) throws IOException {
-		
-		System.out.println(("Inside processReadEvent..."));
-		SocketChannel myClient = (SocketChannel) key.channel();
-		ByteBuffer readBuffer = ByteBuffer.allocate(BUFFER_SIZE);
-		myClient.read(readBuffer);
-		readBuffer.flip();
-		String data = Util.bytes_to_string(readBuffer);
-		if (data.length() > 0) {
-			System.out.println((String.format("Message Received.....: %s   dlugosc %d\n", data, data.length())));
-			       
-		}
-		
-		Response response = getResponse( data );
-		sendResponse(myClient, response);
-		
-	}
 	
-	private void closeConnection( SelectionKey key ) throws IOException{
-		
-		SocketChannel myClient = (SocketChannel) key.channel();
-		myClient.close();
-	    System.out.println(("Closing Server Connection..."));
-		
+	public Stop closeConnections() throws IOException {
+		Stop stop = null;
+		clients.forEach( (k,v) ->  {
+			if(v.isConnected()) {
+				try {
+					v.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		return stop;
 	}
-	*/
 }

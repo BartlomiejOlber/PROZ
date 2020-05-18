@@ -181,15 +181,18 @@ public class GameController implements Runnable {
 				
 				processResponse();
 			}catch(Exception e) {
-				
+				e.printStackTrace();
+				System.exit(-1);
 			}
 		}
 	}
 	
 	private void askForOpponent() throws InterruptedException{
 		
-		GetOpponentEvent request = new GetOpponentEvent(player.getID());
-		requestQueue.add(request);
+		if( requestQueue.isEmpty() ) {
+			GetOpponentEvent request = new GetOpponentEvent(player.getID());
+			requestQueue.add(request);
+		}
 		
 	}
 

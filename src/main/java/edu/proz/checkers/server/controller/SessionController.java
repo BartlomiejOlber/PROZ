@@ -5,10 +5,8 @@ import java.util.HashMap;
 
 import edu.proz.checkers.server.infrastructure.SessionConnectionController;
 import edu.proz.checkers.server.model.*;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-import edu.proz.checkers.client.controller.*;
+import java.util.Map;
 
 import edu.proz.checkers.infrastructure.*;
 
@@ -20,32 +18,27 @@ interface Command {
 public class SessionController implements Runnable{
 	
 	private Map<String, Command> methodMap;
-	private int sessionId;
 	
 	private SessionConnectionController connectionContoller;
 	private Board board;
 	
 	private boolean gameIsOn;
-	private boolean eventHappened;
-	private int winner;
+	private boolean[] playerMoved;
 	private int playersStarted;
 	private int from;
 	private int to;
-	private static final int PLAYER_ONE = 1;
-	private static final int PLAYER_TWO = 2;
 
 	
 	public SessionController( SessionConnectionController scc) {
 		methodMap = new HashMap<String, Command>();
 		methodMap.put(Start.class.getSimpleName(), new CommandStart());
 		methodMap.put(Move.class.getSimpleName(), new CommandMove());
-		methodMap.put(Stop.class.getSimpleName(), new CommandStop());
+	//	methodMap.put(Stop.class.getSimpleName(), new CommandStop());
 		methodMap.put(GetOpponentEvent.class.getSimpleName(), new CommandGetOpponentEvent());
 		board = new Board();
 		playersStarted = 0;
-		winner = 0;
-		eventHappened = false;
-		
+		playerMoved = new boolean[2];
+		gameIsOn = true;
 		this.connectionContoller = scc;
 		
 	}
@@ -61,7 +54,7 @@ public class SessionController implements Runnable{
 			}
 			
 		}catch( IOException e ) {
-			
+			e.printStackTrace();
 		}
 	}
 	
@@ -83,7 +76,7 @@ public class SessionController implements Runnable{
 		}
 	}
 	
-	private class CommandStop implements Command
+/*	private class CommandStop implements Command
 	{
 		public Response process( Message m)
 		{
@@ -91,7 +84,7 @@ public class SessionController implements Runnable{
 			return processStop(stop);
 		}
 	}
-	
+	*/
 	private class CommandGetOpponentEvent implements Command
 	{
 		public Response process( Message m)
@@ -106,17 +99,16 @@ public class SessionController implements Runnable{
 		Response response = null;
 		
 		updateBoard(msg.getFrom(), msg.getTo());
-		eventHappened = true;
-		this.from = msg.getFrom();
-		this.to = msg.getTo();
+		from = msg.getFrom();
+		to = msg.getTo();
 		gameIsOn = board.isOn();
 		if(!gameIsOn) {
-			winner = msg.getPlayerId();
+			//winner = msg.getPlayerId();
 			response = new YouWin(msg.getPlayerId());
 		}else {
 			response = new MoveResponse(msg.getPlayerId());
 		}
-		
+		playerMoved[msg.getPlayerId() - 1] = true;
 		return response;
 		
 	}
@@ -129,7 +121,7 @@ public class SessionController implements Runnable{
 	
 	}
 	
-	private Response processStop( Stop msg ) {
+	/*private Response processStop( Stop msg ) {
 		
 		gameIsOn = false;
 		eventHappened = true;
@@ -143,18 +135,20 @@ public class SessionController implements Runnable{
 
 		
 	}
+	*/
 	
 	private Response processGetOpponentEvent( GetOpponentEvent msg ) {
 		
 		Response response = null;
-		if(eventHappened) {
+		if(playerMoved[msg.getPlayerId()%2]) {
 			if(gameIsOn){
 				
-				response = new OpponentMovedResponse(msg.getPlayerId(),this.from, this.to);
+				response = new OpponentMovedResponse(msg.getPlayerId(), from, to);
+				playerMoved[msg.getPlayerId()%2] = false;
 				
 			}else {
 				
-				response = new YouLose(msg.getPlayerId(), from, to);
+				response = new YouLose(msg.getPlayerId(), from, to );
 			}
 			
 		}else {
@@ -164,7 +158,7 @@ public class SessionController implements Runnable{
 		
 	}
 	
-	private Response getResponse( Request request ) {
+	public Response getResponse( Request request ) {
 				
 		return methodMap.get( request.getClass().getSimpleName() ).process( request );
 		
@@ -176,7 +170,7 @@ public class SessionController implements Runnable{
 		Square fromSquare = board.getSquare(from);
 		Square toSquare = board.getSquare(to);
 		toSquare.setPlayerId(fromSquare.getPlayerId());
-	//	fromSquare.setPlayerID(ENUJM JAKIS EMPTY);		
+		fromSquare.setPlayerId(0);		
 		checkJump(from, to);
 	}
 	
@@ -184,7 +178,7 @@ public class SessionController implements Runnable{
 		
 		if(Math.abs(to - from)>9){				
 			Square removedSquare = board.getSquare( from + (to - from)/2 );
-			//removedSquare.setPlayerID(ENUM EMPTY);		
+			removedSquare.setPlayerId(0);			
 		}
 	}
 }

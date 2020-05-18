@@ -22,6 +22,7 @@ public class ConnectionController implements Runnable {
 	private Selector selector;
 	private SocketChannel myClientSocketChannel;
 	private int port;
+	private String address;
 	private static final int BUFFER_SIZE = 128;
 	//controllers' interface
 	private BlockingQueue<Request> requestQueue;
@@ -30,12 +31,13 @@ public class ConnectionController implements Runnable {
 	ObjectMapper mapper; //json parser
 	private boolean endConnection;
 	
-	public ConnectionController( BlockingQueue<Request> requestQueue, BlockingQueue<Response> responseQueue, int port ) {
+	public ConnectionController( BlockingQueue<Request> requestQueue, BlockingQueue<Response> responseQueue, ConfigParams params ) {
 		this.requestQueue = requestQueue;
 		this.responseQueue = responseQueue;
 		mapper = new ObjectMapper();
 		endConnection = false;
-		this.port = port;
+		this.port = params.getPort();
+		this.address = params.getAddress();
 		
 	}
 	
@@ -45,18 +47,20 @@ public class ConnectionController implements Runnable {
 		try {
 			while( !endConnection ) {
 
-					processRequest();
-			
+				processRequest();
+		
 			}
 		}catch( Exception e) {
-			
+			System.err.print("messages exchange with the server side has failed");
+			e.printStackTrace();
+				
 		}
 	}
 	
 	
 	public void establishConnection() throws IOException {
 		
-	      InetAddress hostIP = InetAddress.getLocalHost();
+	      InetAddress hostIP = InetAddress.getByName(address);
 	      InetSocketAddress myAddress = new InetSocketAddress(hostIP, port);
 	      myClientSocketChannel = SocketChannel.open(myAddress);
 	      selector = Selector.open();

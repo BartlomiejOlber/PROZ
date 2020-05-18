@@ -11,6 +11,8 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 
+import edu.proz.checkers.infrastructure.ConfigParams;
+
 public class AcceptConnectionHandler {
 	
 	private int port; 
@@ -18,18 +20,19 @@ public class AcceptConnectionHandler {
 	ServerSocketChannel myServerSocketChannel;
 	
 	
-	public AcceptConnectionHandler( ) {
+	public AcceptConnectionHandler( ConfigParams params ) {
 		try {
-			init( ) ;
+			init( params ) ;
 		}catch(Exception e) {
-			
+			System.err.print("unable to init server connection tools");
+			e.printStackTrace();
 		}
 	}
 	
-	private void init() throws IOException {
+	private void init( ConfigParams params ) throws IOException {
 		
-		port = 9999;
-	    InetAddress hostIP = InetAddress.getLocalHost();
+		port = params.getPort();
+	    InetAddress hostIP = InetAddress.getByName(params.getAddress());
 	    selector = Selector.open();
 	    myServerSocketChannel = ServerSocketChannel.open();
 	    ServerSocket serverSocket = myServerSocketChannel.socket();
