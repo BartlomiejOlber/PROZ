@@ -101,8 +101,8 @@ public class SessionController implements Runnable{
 		updateBoard(msg.getFrom(), msg.getTo());
 		from = msg.getFrom();
 		to = msg.getTo();
-		gameIsOn = board.isOn();
-		if(!gameIsOn) {
+		
+		if(!board.isOn()) {
 			//winner = msg.getPlayerId();
 			response = new YouWin(msg.getPlayerId());
 		}else {
@@ -141,7 +141,7 @@ public class SessionController implements Runnable{
 		
 		Response response = null;
 		if(playerMoved[msg.getPlayerId()%2]) {
-			if(gameIsOn){
+			if(board.isOn()){
 				
 				response = new OpponentMovedResponse(msg.getPlayerId(), from, to);
 				playerMoved[msg.getPlayerId()%2] = false;
@@ -149,6 +149,7 @@ public class SessionController implements Runnable{
 			}else {
 				
 				response = new YouLose(msg.getPlayerId(), from, to );
+				gameIsOn = false;
 			}
 			
 		}else {

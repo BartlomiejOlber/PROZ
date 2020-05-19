@@ -3,6 +3,9 @@ package edu.proz.checkers.client.controller;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+
+import javax.swing.JOptionPane;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -151,6 +154,9 @@ public class GameController implements Runnable {
 	private void processYouWin( YouWin msg) {
 		
 		gameOver = true;
+		JOptionPane.showMessageDialog(null, "GRATULUJE WYGRAL PAN",
+				"Information", JOptionPane.INFORMATION_MESSAGE, null);
+		System.exit(0);
 		//wyświetlić że wygrał
 	}
 	
@@ -164,12 +170,17 @@ public class GameController implements Runnable {
 		
 		updateReceivedInfo(msg.getFrom(), msg.getTo());
 		gameOver = true;
+		JOptionPane.showMessageDialog(null, "GRATULUJE PRZEGRAL PAN",
+				"Information", JOptionPane.INFORMATION_MESSAGE, null);
+		System.exit(0);
 		//można wyświetlić mu że przegrał
 	}
 	
 	@Override 
 	public void run( ) {
-
+		
+	//	makeStart();
+		
 		while( !gameOver ) {
 			try {
 				
@@ -180,12 +191,19 @@ public class GameController implements Runnable {
 					askForOpponent();
 				
 				processResponse();
+				
 			}catch(Exception e) {
 				e.printStackTrace();
 				System.exit(-1);
+				
 			}
 		}
+		
+		JOptionPane.showMessageDialog(null, "Game is over",
+				"Information", JOptionPane.INFORMATION_MESSAGE, null);
+		System.exit(0);
 	}
+
 	
 	private void askForOpponent() throws InterruptedException{
 		
