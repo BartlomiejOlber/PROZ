@@ -5,6 +5,9 @@ import java.util.HashMap;
 
 import edu.proz.checkers.server.infrastructure.SessionConnectionController;
 import edu.proz.checkers.server.model.*;
+import wszystko.Response;
+import wszystko.Stop;
+import wszystko.StopResponse;
 
 import java.util.Map;
 
@@ -33,7 +36,7 @@ public class SessionController implements Runnable{
 		methodMap = new HashMap<String, Command>();
 		methodMap.put(Start.class.getSimpleName(), new CommandStart());
 		methodMap.put(Move.class.getSimpleName(), new CommandMove());
-	//	methodMap.put(Stop.class.getSimpleName(), new CommandStop());
+		methodMap.put(Stop.class.getSimpleName(), new CommandStop());
 		methodMap.put(GetOpponentEvent.class.getSimpleName(), new CommandGetOpponentEvent());
 		board = new Board();
 		playersStarted = 0;
@@ -76,7 +79,7 @@ public class SessionController implements Runnable{
 		}
 	}
 	
-/*	private class CommandStop implements Command
+	private class CommandStop implements Command
 	{
 		public Response process( Message m)
 		{
@@ -84,7 +87,7 @@ public class SessionController implements Runnable{
 			return processStop(stop);
 		}
 	}
-	*/
+	
 	private class CommandGetOpponentEvent implements Command
 	{
 		public Response process( Message m)
@@ -103,7 +106,6 @@ public class SessionController implements Runnable{
 		to = msg.getTo();
 		
 		if(!board.isOn()) {
-			//winner = msg.getPlayerId();
 			response = new YouWin(msg.getPlayerId());
 		}else {
 			response = new MoveResponse(msg.getPlayerId());
@@ -121,21 +123,10 @@ public class SessionController implements Runnable{
 	
 	}
 	
-	/*private Response processStop( Stop msg ) {
-		
+	private Response processStop( Stop msg ) {
 		gameIsOn = false;
-		eventHappened = true;
-		if( msg.getPlayerId() == 1 ) {
-			winner = 2;
-		}else {
-			winner = 1;
-		}		
-		StopResponse response = new StopResponse(msg.getPlayerId());	
-		return response;
-
-		
+		return new StopResponse(msg.getPlayerId());
 	}
-	*/
 	
 	private Response processGetOpponentEvent( GetOpponentEvent msg ) {
 		

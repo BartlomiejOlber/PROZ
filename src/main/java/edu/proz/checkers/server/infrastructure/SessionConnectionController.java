@@ -39,37 +39,35 @@ public class SessionConnectionController {
 	
 	public Request getRequest( ) throws IOException {
 		
-		try {
-			ByteBuffer readBuffer=ByteBuffer.allocate(BUFFER_SIZE);	
-			String data = null;
-			System.out.print("przed select\n");
-			selector.select();
-		    Set<SelectionKey> selectedKeys = selector.selectedKeys();
-		    Iterator<SelectionKey> i = selectedKeys.iterator();
-		    while(true) {
-			    while (i.hasNext()) {
-				     SelectionKey key = i.next();			
-				     if (key.isReadable()) {
-				    	 SocketChannel clientChannel = (SocketChannel) key.channel();	
-						  clientChannel.read(readBuffer);
-						  readBuffer.flip();
-						  data = Util.bytes_to_string(readBuffer);
-						  
-						  if (data.length() > 0) {
-							   System.out.println(String.format("Message Received %s.....: %s \n", data,data.length()));
-							   Request request = mapper.readValue(data, Request.class);
-							   System.out.print(request.getPlayerId());
-							   i.remove();
-							   return request;
-						  }
-				     }
-				 i.remove();    
-			    }
+		ByteBuffer readBuffer=ByteBuffer.allocate(BUFFER_SIZE);	
+		String data = null;
+		selector.select(1000);
+	    Set<SelectionKey> selectedKeys = selector.selectedKeys();
+	    Iterator<SelectionKey> i = selectedKeys.iterator();
+	    while(true) {
+		    while (i.hasNext()) {
+			     SelectionKey key = i.next();			
+			     if (key.isReadable()) {
+			    	 SocketChannel clientChannel = (SocketChannel) key.channel();	
+					  clientChannel.read(readBuffer);
+					  readBuffer.flip();
+					  data = Util.bytes_to_string(readBuffer);
+					  
+					  if (data.length() > 0) {
+						   System.out.println(String.format("Message Received %s.....: %s \n", data,data.length()));
+						   Request request = mapper.readValue(data, Request.class);
+						   System.out.print(request.getPlayerId());
+						   i.remove();
+						   return request;
+					  }else {
+						  Stop stop= new Stop(getConnectedClient( key ));
+						  return stop;
+					  }
+					  
+			     }
+			 i.remove();    
 		    }
-		}catch (IOException e){
-			Stop stop= closeConnections();
-			return stop;
-		}
+	    }
 	}
 	
 	public void sendResponse( Response response ) throws IOException {
@@ -83,7 +81,16 @@ public class SessionConnectionController {
 	
 	}
 	
-	
+	private int getConnectedClient( SelectionKey key ) {
+		int waiting = 0;
+		for(int i = 1; i < 3; ++i) {
+			if( key.channel().equals(clients.get(i) ) ) {
+				waiting = i%2 + 1;
+			}
+		}
+		return waiting;
+	}
+	/*
 	public Stop closeConnections() throws IOException {
 		Stop stop = null;
 		clients.forEach( (k,v) ->  {
@@ -96,5 +103,5 @@ public class SessionConnectionController {
 			}
 		});
 		return stop;
-	}
+	}*/
 }

@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import edu.proz.checkers.client.model.Player;
 import edu.proz.checkers.infrastructure.*;
+import wszystko.StopResponse;
 
 interface Command {	
 	
@@ -138,6 +139,9 @@ public class GameController implements Runnable {
 	private void processStopResponse( StopResponse msg) {
 		
 		gameOver = true;
+		JOptionPane.showMessageDialog(null, "GRATULUJE WYGRAL PAN PRZEZ WALKOWERA",
+				"Information", JOptionPane.INFORMATION_MESSAGE, null);
+		System.exit(0);
 	}
 
 	private void processWaitResponse( WaitResponse msg) {
