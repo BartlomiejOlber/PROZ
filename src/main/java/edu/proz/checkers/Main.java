@@ -16,14 +16,14 @@ public class Main {
 		ConfigManager cm = new ConfigManager();
 		if( args[0].equals("client")) { //wolanie clientapp
 
-			ConfigParams params = cm.load("client_params.json");
+			ConfigParams params = cm.load("/client_params.json");
 			
 			System.out.println(params.getAddress() + " port: " + params.getPort() );
 		//	ClientApp client = new ClientApp( params );
 		}else { //wolanie serverapp
 			
 			
-			ConfigParams params = cm.load("server_params.json");
+			ConfigParams params = cm.load("/server_params.json");
 			System.out.println(params.getAddress() + " port: " + params.getPort() );
 	/*		ServerApp server = new ServerApp( params );
 			server.setSize(400,250);

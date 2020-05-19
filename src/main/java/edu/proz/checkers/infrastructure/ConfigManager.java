@@ -1,6 +1,5 @@
 package edu.proz.checkers.infrastructure;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +19,7 @@ public class ConfigManager {
 		ConfigParams params = null;
 		try {
 
-        	InputStream input = new FileInputStream(filepath);
+        	InputStream input = getClass().getResourceAsStream(filepath);
 
         	params = jsonParser.readValue(input, ConfigParams.class);
             return params;
