@@ -1,4 +1,4 @@
-package edu.proz.checkers.client.model;
+package edu.proz.checkers;
 
 /**
  * Class that contains all the constant values used in model.

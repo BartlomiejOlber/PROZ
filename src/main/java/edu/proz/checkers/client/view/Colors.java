@@ -1,7 +1,8 @@
 package edu.proz.checkers.client.view;
 
-import edu.proz.checkers.client.model.Constants;
 import java.awt.Color;
+
+import edu.proz.checkers.Constants;
 
 /**
  * Class that contains all the constant colors used in GUI.

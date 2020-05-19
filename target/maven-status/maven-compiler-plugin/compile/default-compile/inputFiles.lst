@@ -17,6 +17,7 @@
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/server/controller/SessionController.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/YouLose.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/MoveResponse.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/Constants.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/YouWin.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/controller/GameController.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/Util.java
@@ -26,7 +27,6 @@
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/StartResponse.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/ConfigParams.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/ClientApp.java
-/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/model/Constants.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Response.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/model/Player.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/server/model/Board.java

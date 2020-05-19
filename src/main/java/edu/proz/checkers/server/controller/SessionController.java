@@ -5,12 +5,11 @@ import java.util.HashMap;
 
 import edu.proz.checkers.server.infrastructure.SessionConnectionController;
 import edu.proz.checkers.server.model.*;
-import wszystko.Response;
-import wszystko.Stop;
-import wszystko.StopResponse;
+
 
 import java.util.Map;
 
+import edu.proz.checkers.Constants;
 import edu.proz.checkers.infrastructure.*;
 
 interface Command {	
@@ -162,7 +161,7 @@ public class SessionController implements Runnable{
 		Square fromSquare = board.getSquare(from);
 		Square toSquare = board.getSquare(to);
 		toSquare.setPlayerId(fromSquare.getPlayerId());
-		fromSquare.setPlayerId(0);		
+		fromSquare.setPlayerId(Constants.SQUARE_NOT_OCCUPIED.getValue());		
 		checkJump(from, to);
 	}
 	
@@ -170,7 +169,7 @@ public class SessionController implements Runnable{
 		
 		if(Math.abs(to - from)>9){				
 			Square removedSquare = board.getSquare( from + (to - from)/2 );
-			removedSquare.setPlayerId(0);			
+			removedSquare.setPlayerId(Constants.SQUARE_NOT_OCCUPIED.getValue());			
 		}
 	}
 }

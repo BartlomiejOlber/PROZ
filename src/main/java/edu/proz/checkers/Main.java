@@ -17,15 +17,13 @@ public class Main {
 		if( args[0].equals("client")) { //wolanie clientapp
 
 			ConfigParams params = cm.load("/client_params.json");
-			
-			System.out.println(params.getAddress() + " port: " + params.getPort() );
-		//	ClientApp client = new ClientApp( params );
+			ClientApp client = new ClientApp( params );
 		}else { //wolanie serverapp
 			
 			
 			ConfigParams params = cm.load("/server_params.json");
-			System.out.println(params.getAddress() + " port: " + params.getPort() );
-	/*		ServerApp server = new ServerApp( params );
+		
+			ServerApp server = new ServerApp( params );
 			server.setSize(400,250);
 			server.setVisible(true);
 			server.setTitle("Checkers Server");
@@ -33,7 +31,7 @@ public class Main {
 			
 			//start Connection
 			server.start( );
-		*/			
+				
 
 		}
 		

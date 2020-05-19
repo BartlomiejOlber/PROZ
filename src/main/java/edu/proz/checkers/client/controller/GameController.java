@@ -9,9 +9,10 @@ import javax.swing.JOptionPane;
 import java.util.Map;
 import java.util.HashMap;
 
-import edu.proz.checkers.client.model.Player;
+import edu.proz.checkers.Constants;
+import edu.proz.checkers.client.model.*;
 import edu.proz.checkers.infrastructure.*;
-import wszystko.StopResponse;
+
 
 interface Command {	
 	
@@ -125,7 +126,7 @@ public class GameController implements Runnable {
 	private void processStartResponse( StartResponse msg) {
 		
 		player.setID( msg.getPlayerId() );
-		if( msg.getPlayerId() == 2 ) {
+		if( msg.getPlayerId() ==  Constants.PLAYER_TWO_ID.getValue() ) {
 			player.setIsMyTurn( true );
 			waitingForAction = true;
 			//można tu wyświetlić jakaś wiadomość żeby się ruszył

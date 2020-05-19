@@ -1,5 +1,6 @@
 package edu.proz.checkers.client.model;
 
+import edu.proz.checkers.Constants;
 import edu.proz.checkers.client.PlayerIDHolder;
 
 /**

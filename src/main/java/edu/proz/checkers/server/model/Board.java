@@ -1,5 +1,6 @@
 package edu.proz.checkers.server.model;
 
+import edu.proz.checkers.Constants;
 
 public class Board {
 	
@@ -20,8 +21,7 @@ public class Board {
 		int count = 1;	
 		for(int row=0;row<SIZE;row++){	
 			for(int column=0;column<SIZE;column++){
-				board[row][column] = new Square( row, column, 0, count);
-				System.out.print("\nBOARD:" + row + column + 0 + count);
+				board[row][column] = new Square( row, column, Constants.SQUARE_NOT_OCCUPIED.getValue(), count);
 				count++;
 			}
 		}	
@@ -31,11 +31,11 @@ public class Board {
 	private void assignSquares() {
 		
 		for (int i : PLAYER_ONE_TABLE) {
-			board[i/SIZE][i%SIZE].setPlayerId(1);
+			board[i/SIZE][i%SIZE].setPlayerId(Constants.PLAYER_ONE_ID.getValue());
 		}
 		
 		for (int i : PLAYER_TWO_TABLE) {
-			board[i/SIZE][i%SIZE].setPlayerId(2);
+			board[i/SIZE][i%SIZE].setPlayerId(Constants.PLAYER_TWO_ID.getValue());
 		}
 		
 	}
@@ -52,9 +52,9 @@ public class Board {
 		boolean playerTwo = false;
 		for(int r=0;r<SIZE;r++){
 			for(int c=0;c<SIZE;c++){
-				if(board[r][c].getPlayerId()==1)
+				if(board[r][c].getPlayerId()==Constants.PLAYER_ONE_ID.getValue())
 					playerOne = true;			
-				if(board[r][c].getPlayerId()==2)
+				if(board[r][c].getPlayerId()==Constants.PLAYER_TWO_ID.getValue())
 					playerTwo = true;
 			}
 		}

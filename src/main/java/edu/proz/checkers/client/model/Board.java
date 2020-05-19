@@ -2,6 +2,8 @@ package edu.proz.checkers.client.model;
 
 import java.util.LinkedList;
 
+import edu.proz.checkers.Constants;
+
 /**
  * Class that represents the whole board in model.
  */

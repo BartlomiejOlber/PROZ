@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.swing.*;
 
+import edu.proz.checkers.Constants;
 import edu.proz.checkers.infrastructure.ConfigParams;
 import edu.proz.checkers.infrastructure.Request;
 import edu.proz.checkers.infrastructure.Response;
@@ -48,23 +49,25 @@ public class ServerApp extends JFrame {
 				sessionNo = 1;	
 				SessionConnectionController scc = new SessionConnectionController();
 				SessionController newSession = new SessionController( scc );
-				information.append(new Date()+ ":- Session "+ sessionNo + " is started\n");
+				
 				
 				SocketChannel clientOne = acceptor.accept();
-				scc.addClient(clientOne, 1);
+				scc.addClient(clientOne, Constants.PLAYER_ONE_ID.getValue());
 				Request startRequest = scc.getRequest();
 				Response startResponse = newSession.getResponse( startRequest );
 				scc.sendResponse(startResponse);
 				
-				information.append(new Date() + ":- player1 joined at\n");
-				information.append(clientOne.toString());
+				information.append(new Date() + ":- player1 joined\n");
 				
 				
 				SocketChannel clientTwo = acceptor.accept();
-				scc.addClient(clientTwo, 2);
+				scc.addClient(clientTwo, Constants.PLAYER_TWO_ID.getValue());
+				
 				Request startSecondRequest = scc.getRequest();
 				Response startSecondResponse = newSession.getResponse( startSecondRequest );
-				scc.sendResponse(startSecondResponse);								
+				scc.sendResponse(startSecondResponse);	
+				information.append(new Date() + ":- player2 joined\n");
+				information.append(new Date()+ ":- Session "+ sessionNo++ + " is started\n");
 				new Thread(newSession).start();
 			}catch(IOException e) {
 				e.printStackTrace();
