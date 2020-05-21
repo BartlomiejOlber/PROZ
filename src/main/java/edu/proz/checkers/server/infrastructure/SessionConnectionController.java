@@ -15,12 +15,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.proz.checkers.Util;
 import edu.proz.checkers.infrastructure.*;
 
+
 public class SessionConnectionController {
 	
 	Selector selector;
 	private Map<Integer, SocketChannel> clients;	
 	ObjectMapper mapper; //json parser	
 	private static final int BUFFER_SIZE = 128;
+	private static final int TIMEOUT = 1000;
 	
 	public SessionConnectionController()  throws IOException {
 		
@@ -39,46 +41,58 @@ public class SessionConnectionController {
 	
 	public Request getRequest( ) throws IOException {
 		
+		
 		ByteBuffer readBuffer=ByteBuffer.allocate(BUFFER_SIZE);	
 		String data = null;
-		selector.select(1000);
-	    Set<SelectionKey> selectedKeys = selector.selectedKeys();
-	    Iterator<SelectionKey> i = selectedKeys.iterator();
-	    while(true) {
-		    while (i.hasNext()) {
-			     SelectionKey key = i.next();			
-			     if (key.isReadable()) {
-			    	 SocketChannel clientChannel = (SocketChannel) key.channel();	
-					  clientChannel.read(readBuffer);
-					  readBuffer.flip();
-					  data = Util.bytes_to_string(readBuffer);
-					  
-					  if (data.length() > 0) {
-						   System.out.println(String.format("Message Received %s.....: %s \n", data,data.length()));
-						   Request request = mapper.readValue(data, Request.class);
-						   System.out.print(request.getPlayerId());
-						   i.remove();
-						   return request;
-					  }else {
-						  Stop stop= new Stop(getConnectedClient( key ));
-						  return stop;
-					  }
-					  
-			     }
-			 i.remove();    
-		    }
+		try {
+		    while(true) {
+				selector.select(TIMEOUT);
+			    Set<SelectionKey> selectedKeys = selector.selectedKeys();
+			    Iterator<SelectionKey> i = selectedKeys.iterator();
+			    while (i.hasNext()) {
+				     SelectionKey key = i.next();			
+				     if (key.isReadable()) {
+				    	 SocketChannel clientChannel = (SocketChannel) key.channel();	
+						  clientChannel.read(readBuffer);
+						  readBuffer.flip();
+						  data = Util.bytes_to_string(readBuffer);					  
+						  if (data.length() > 0) {
+							   Request request = mapper.readValue(data, Request.class);
+							   i.remove();
+							   return request;
+						  }else {
+							  Stop stop= new Stop(getConnectedClient( key ));
+							  return stop;
+						  }					  
+				     }
+				 i.remove();    
+			    }		
+		}
+	    }catch( IOException e) {
+			  Stop stop= new Stop(getConnectedClient(  ));
+			  return stop;
 	    }
-	}
 	
+	}
+
 	public void sendResponse( Response response ) throws IOException {
 		
 		ByteBuffer writeBuffer = ByteBuffer.allocate(BUFFER_SIZE);
 		String jsonString = mapper.writeValueAsString( response );
-        writeBuffer.put(jsonString.getBytes());
-        writeBuffer.flip();
-        System.out.println(String.format("Message sent.....: %s  dlugosc %d\n", jsonString,jsonString.length()));
-        clients.get(response.getPlayerId()).write(writeBuffer);  
+	    writeBuffer.put(jsonString.getBytes());
+	    writeBuffer.flip();
+	    clients.get(response.getPlayerId()).write(writeBuffer);  
 	
+	}
+	
+	private int getConnectedClient( ) {
+		int waiting = 0;
+		for(int i = 1; i < 3; ++i) {
+			if( clients.get(i).isConnected() ) {
+				waiting = i%2 + 1;
+			}
+		}
+		return waiting;
 	}
 	
 	private int getConnectedClient( SelectionKey key ) {
@@ -90,18 +104,4 @@ public class SessionConnectionController {
 		}
 		return waiting;
 	}
-	/*
-	public Stop closeConnections() throws IOException {
-		Stop stop = null;
-		clients.forEach( (k,v) ->  {
-			if(v.isConnected()) {
-				try {
-					v.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		return stop;
-	}*/
 }

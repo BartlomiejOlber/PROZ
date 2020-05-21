@@ -24,7 +24,7 @@ public class ConfigManager {
         	params = jsonParser.readValue(input, ConfigParams.class);
             return params;
 		}catch(Exception e) {
-			e.printStackTrace();
+		//	e.printStackTrace();
 			params = new ConfigParams( DEFAULT_PORT, LOOPBACK );
 			return params;
 		}

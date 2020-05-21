@@ -1,1 +1,2 @@
-edu/proz/checkers/AppTest.class
+edu/proz/checkers/infrastructure/ConfigManagerTest.class
+edu/proz/checkers/infrastructure/MessagesTest.class
