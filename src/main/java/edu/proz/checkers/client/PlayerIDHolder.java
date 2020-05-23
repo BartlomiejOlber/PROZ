@@ -9,17 +9,16 @@ public enum PlayerIDHolder {
      */
     PLAYER_ID(0);
 
-    /**
-     * Value of player's ID.
-     */
+
+    // value of player's ID.
     private int value;
 
-    PlayerIDHolder(int value) {
+    private PlayerIDHolder(int value) {
         this.setValue(value);
     }
 
     /**
-     * Function to get player's ID.
+     * Method to get player's ID.
      * @return Player's ID.
      */
     public int getValue() {
@@ -27,11 +26,13 @@ public enum PlayerIDHolder {
     }
 
     /**
-     * Function to set player's ID.
+     * Method to set player's ID.
      * @param value Player's ID.
      */
     public void setValue(int value) {
         this.value = value;
     }
 }
+
+
 
