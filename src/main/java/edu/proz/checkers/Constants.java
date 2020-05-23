@@ -27,27 +27,13 @@ public enum Constants {
     /**
      * It means that there is no pawn, that belongs to any player, on this square.
      */
-    SQUARE_NOT_OCCUPIED(0),
+    SQUARE_NOT_OCCUPIED(0);
 
-    /**
-     * Constant that indicates that someone has won.
-     */
-    YOU_WON_THE_GAME(1000),
-
-    /**
-     * Constant that indicates that someone has lost.
-     */
-    YOU_LOST_THE_GAME(2000);
-
-    /**
-     * Number that indicates which constant it is.
-     */
+    // number that indicates which constant it is.
     private int value;
 
-    /**
-     * Private constructor. We do not want to let someone create more constants in code.
-     * @param value Number that indicates which constant it is.
-     */
+
+    // private constructor. We do not want to let someone create more constants in code.
     private Constants(int value) {
         this.value = value;
     }
