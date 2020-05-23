@@ -69,14 +69,6 @@ public class Board {
     }
 
     /**
-     * Method to get the total number of squares on board.
-     * @return Total number of squares on board.
-     */
-    public int getNumberOfSquaresOnBoard() {
-        return allSquaresOnBoard.length;
-    }
-
-    /**
      * Method to get the 2D array of squares on board.
      * @return 2D array that contain all squares on board.
      */

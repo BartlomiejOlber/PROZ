@@ -41,8 +41,6 @@ public class GraphicBoard extends JPanel {
         allGraphicSquaresOnGraphicBoard = new LinkedList<GraphicSquare>();
 
         initializeGraphicSquares();
-
-        System.out.println(boardModel.getNumberOfSquaresOnBoard());
     }
 
     /*
