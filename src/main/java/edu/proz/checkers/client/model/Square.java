@@ -78,7 +78,7 @@ public class Square {
      * @param ID ID of player to whom the pawn on this square belongs.
      */
     public void setPlayerID(int ID) {
-        this.playerID= ID;
+        this.playerID = ID;
     }
 
     /**
