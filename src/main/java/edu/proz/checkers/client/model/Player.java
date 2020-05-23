@@ -6,19 +6,14 @@ import edu.proz.checkers.client.PlayerIDHolder;
  * Class that represents the player in model and holds important player's data.
  */
 public class Player {
-    /**
-     * Variable that holds player's ID.
-     */
+
+    // variable that holds player's ID.
     private int ID;
 
-    /**
-     * Variable that holds player's name.
-     */
+    // variable that holds player's name.
     private String name;
 
-    /**
-     * Variable that indicates if now is particular player's turn.
-     */
+    // variable that indicates if now is particular player's turn.
     private boolean isMyTurn;
 
 
@@ -32,7 +27,7 @@ public class Player {
     }
 
     /**
-     * Function that returns player's ID.
+     * Method that returns player's ID.
      * @return Player's ID.
      */
     public int getID() {
@@ -40,7 +35,7 @@ public class Player {
     }
 
     /**
-     * Function that sets player's ID to the appropriate value and also saves this ID in holder.
+     * Method that sets player's ID to the appropriate value and also saves this ID in holder.
      * @param ID Player's id.
      */
     public void setID(int ID) {
@@ -50,7 +45,7 @@ public class Player {
 
 
     /**
-     * Function that returns player's name.
+     * Method that returns player's name.
      * @return Player's name.
      */
     public String getName(){
@@ -58,7 +53,7 @@ public class Player {
     }
 
     /**
-     * Function that returns true if it is player's turn now and otherwise false.
+     * Method that returns true if it is player's turn now and otherwise false.
      * @return Boolean value that indicates if it is player's turn now.
      */
     public boolean getIsMyTurn() {
@@ -66,11 +61,10 @@ public class Player {
     }
 
     /**
-     * Function that sets the player's turn true or false.
+     * Method that sets the player's turn true or false.
      * @param isMyTurn Boolean value that will be assigned to isMyTurn variable.
      */
     public void setIsMyTurn(boolean isMyTurn) {
         this.isMyTurn = isMyTurn;
     }
 }
-

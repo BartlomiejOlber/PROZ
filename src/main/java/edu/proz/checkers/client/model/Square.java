@@ -2,49 +2,35 @@ package edu.proz.checkers.client.model;
 
 import edu.proz.checkers.Constants;
 import edu.proz.checkers.client.PlayerIDHolder;
-
 /**
  * Class that represents single square on the board.
  */
 public class Square {
-    /**
-     * Square number on the board.
-     */
+
+    // square number on the board.
     private int ID;
 
-    /**
-     * ID of player to whom the pawn on this square belongs.
-     */
+    // ID of player to whom the pawn on this square belongs.
     private int playerID;
 
-    /**
-     * Number of row in which the square is.
-     */
+    // number of row in which the square is.
     private int rowNumber;
 
-    /**
-     * Number of column in which the square is.
-     */
+    // number of column in which the square is.
     private int colNumber;
 
-    /**
-     * Boolean value that indicates if it is a type of square on which we can put pawns.
-     */
+    // boolean value that indicates if it is a type of square on which we can put pawns.
     private boolean isAvailableForPawns;
 
-    /**
-     * Boolean value that indicates if we clicked mouse on this square.
-     */
+
+    // boolean value that indicates if we clicked mouse on this square.
     private boolean isSelected;
 
-    /**
-     * Boolean value that indicates if we can put our pawn on this square.
-     */
+    // boolean value that indicates if we can put our pawn on this square.
     private boolean isPossibleToMove;
 
-    /**
-     * Boolean value that indicated if there is a king on the square.
-     */
+
+    // boolean value that indicated if there is a king on the square.
     private boolean isKing;
 
     /**
@@ -72,7 +58,7 @@ public class Square {
     }
 
     /**
-     * Function that returns square number on the board.
+     * Method that returns square number on the board.
      * @return Square number on the board.
      */
     public int getID() {
@@ -80,7 +66,7 @@ public class Square {
     }
 
     /**
-     * Function that returns ID of player to whom the pawn on this square belongs.
+     * Method that returns ID of player to whom the pawn on this square belongs.
      * @return ID of player to whom the pawn on this square belongs.
      */
     public int getPlayerID() {
@@ -88,15 +74,15 @@ public class Square {
     }
 
     /**
-     * Function that sets ID of player to whom the pawn on this square belongs.
+     * Method that sets ID of player to whom the pawn on this square belongs.
      * @param ID ID of player to whom the pawn on this square belongs.
      */
     public void setPlayerID(int ID) {
-        this.playerID = ID;
+        this.playerID= ID;
     }
 
     /**
-     * Function that returns the number of row in which the square is.
+     * Method that returns the number of row in which the square is.
      * @return Number of row in which the square is.
      */
     public int getRowNumber() {
@@ -104,7 +90,7 @@ public class Square {
     }
 
     /**
-     * Function that returns the number of column in which the square is.
+     * Method that returns the number of column in which the square is.
      * @return Number of column in which the square is.
      */
     public int getColNumber() {
@@ -112,15 +98,15 @@ public class Square {
     }
 
     /**
-     * Function that returns boolean value that indicates if the square is available to put pawns on it.
+     * Method that returns boolean value that indicates if the square is available to put pawns on it.
      * @return Boolean value that indicates if it is a type of square on which we can put pawns.
      */
     public boolean getIsAvailableForPawns() {
         return isAvailableForPawns;
     }
 
-    /**
-     * Function that sets boolean value that indicates if the square is available to put pawns on it.
+    /*
+     * Method that sets boolean value that indicates if the square is available to put pawns on it.
      * @param isAvailableForPawns Boolean value that indicates if it is a type of square on which we can put pawns.
      */
     private void setIsAvailableForPawns(boolean isAvailableForPawns) {
@@ -128,7 +114,7 @@ public class Square {
     }
 
     /**
-     * Function that returns boolean value that indicates if we clicked mouse on this square.
+     * Method that returns boolean value that indicates if we clicked mouse on this square.
      * @return Boolean value that indicates if we clicked mouse on this square.
      */
     public boolean getIsSelected() {
@@ -136,7 +122,7 @@ public class Square {
     }
 
     /**
-     * Function that sets boolean value that indicates if we clicked mouse on this square.
+     * Method that sets boolean value that indicates if we clicked mouse on this square.
      * @param isSelected Boolean value that indicates if we clicked mouse on this square.
      */
     public void setIsSelected(boolean isSelected) {
@@ -144,7 +130,7 @@ public class Square {
     }
 
     /**
-     * Function that returns boolean value that indicates if we can put our pawn on this square.
+     * Method that returns boolean value that indicates if we can put our pawn on this square.
      * @return Boolean value that indicates if we can put our pawn on this square.
      */
     public boolean getIsPossibleToMove() {
@@ -152,7 +138,7 @@ public class Square {
     }
 
     /**
-     * Function that sets boolean value that indicates if we can put our pawn on this square.
+     * Method that sets boolean value that indicates if we can put our pawn on this square.
      * @param isPossibleToMove Boolean value that indicates if we can put our pawn on this square.
      */
     public void setIsPossibleToMove(boolean isPossibleToMove) {
@@ -160,7 +146,7 @@ public class Square {
     }
 
     /**
-     * Function that returns boolean value that indicates if there is a king on the square.
+     * Method that returns boolean value that indicates if there is a king on the square.
      * @return Boolean value that indicated if there is a king on the square.
      */
     public boolean isKing() {
@@ -168,21 +154,21 @@ public class Square {
     }
 
     /**
-     * Function that sets boolean value, that indicates if there is a king on the square, true.
+     * Method that sets boolean value, that indicates if there is a king on the square, true.
      */
     public void setKing() {
         this.isKing = true;
     }
 
     /**
-     * Function that sets boolean value, that indicates if there is a king on the square, false.
+     * Method that sets boolean value, that indicates if there is a king on the square, false.
      */
     public void removeKing() {
         this.isKing = false;
     }
 
     /**
-     * Function that returns boolean value that indicates if the square belongs to player's opponent.
+     * Method that returns boolean value that indicates if the square belongs to player's opponent.
      * @return Boolean value that indicates if the square belongs to player's opponent.
      */
     public boolean doesTheSquareBelongToTheOpponent() {
@@ -192,4 +178,5 @@ public class Square {
             return false;
     }
 }
+
 
