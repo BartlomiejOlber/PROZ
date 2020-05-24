@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  * Class that is responsible for listening to events that happen when we click or put the cursor on squares.
+ * @see MouseAdapter
  */
 public class SquareMouseListener extends MouseAdapter {
 
@@ -22,6 +23,7 @@ public class SquareMouseListener extends MouseAdapter {
      * When player clicks at square and it is his turn, the method runs another function "toggleSelectPiece".
      * If it is not his turn, the function shows message dialog that informs about it.
      * @param e Special object generated when player clicks at some of the squares.
+     * @see MouseAdapter#mousePressed(MouseEvent)
      */
     @Override
     public void mousePressed(MouseEvent e) {
@@ -37,6 +39,7 @@ public class SquareMouseListener extends MouseAdapter {
      * Method responsible for setting the square toggled and repainting it when someone puts the cursor on
      * the square area.
      * @param e Object generated when cursor enters the square area.
+     * @see MouseAdapter#mouseEntered(MouseEvent)
      */
     @Override
     public void mouseEntered(MouseEvent e) {
@@ -53,6 +56,7 @@ public class SquareMouseListener extends MouseAdapter {
      * Method responsible for setting toggled flag false and repainting the square when someone puts the cursor on
      * the square area.
      * @param e Object generated when cursor leaves the square area.
+     * @see MouseAdapter#mouseExited(MouseEvent)
      */
     @Override
     public void mouseExited(MouseEvent e) {

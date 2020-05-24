@@ -5,14 +5,14 @@ import edu.proz.checkers.client.model.Board;
 import edu.proz.checkers.client.model.Square;
 import edu.proz.checkers.Constants;
 
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.util.LinkedList;
 
 import javax.swing.*;
 
 /**
  * Class that represents the whole checker board in GUI.
+ * @see JPanel
  */
 public class GraphicBoard extends JPanel {
 
@@ -31,6 +31,10 @@ public class GraphicBoard extends JPanel {
     // 2D array that is containing all the squares from model.
     private Square[][] allSquaresOnBoard;
 
+    /**
+     * Constructor that initializes the graphic board.
+     * @param listener Object that will be assigned to the graphic board's listener.
+     */
     public GraphicBoard(SquareMouseListener listener) {
 
         setPreferredSize(panelSize);
@@ -68,6 +72,7 @@ public class GraphicBoard extends JPanel {
 
     /**
      * Method that refreshes listeners and repaints graphic board.
+     * @see JPanel#repaint()
      */
     public void repaintGraphicBoard() {
         for(GraphicSquare graphicSquare : allGraphicSquaresOnGraphicBoard)

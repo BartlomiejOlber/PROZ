@@ -16,7 +16,8 @@ import java.awt.event.ActionListener;
 
 /**
  * Client application class
- *
+ * @see JFrame
+ * @see ActionListener
  */
 public class ClientApp extends JFrame implements ActionListener {
 
@@ -95,6 +96,11 @@ public class ClientApp extends JFrame implements ActionListener {
 		setJMenuBar(menuBar);
 	}
 
+	/**
+	 * Method that shows appropriate dialog window when someone clicks at one of the menu items.
+	 * @param e Object generated when action event occurs.
+	 * @see ActionListener#actionPerformed(ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();

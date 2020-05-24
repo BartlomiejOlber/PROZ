@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Class that makes it possible to add menu bar in our gui frame
+ * @see JMenuBar
  */
 public class MyMenuBar extends JMenuBar {
 
