@@ -1,5 +1,11 @@
 package edu.proz.checkers.server.model;
 
+/**
+ * Model square. Contains information of its coordinates on board and whether is assigned to a player.
+ * Methods are just getters an setters.
+ * @author bartlomiej
+ *
+ */
 public class Square {
 
 	private int row;

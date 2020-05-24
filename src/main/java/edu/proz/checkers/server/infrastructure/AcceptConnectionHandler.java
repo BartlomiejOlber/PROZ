@@ -13,13 +13,22 @@ import java.util.Set;
 
 import edu.proz.checkers.infrastructure.ConfigParams;
 
+/**
+ * Class responsible for accepting clients connections
+ * @author bartlomiej
+ *
+ */
 public class AcceptConnectionHandler {
 	
 	private int port; 
 	private static Selector selector;
-	ServerSocketChannel myServerSocketChannel;
+	private ServerSocketChannel myServerSocketChannel;
 	
 	
+	/**
+	 * Initializes NIO tools to get ready for accepting connections
+	 * @param params containing inet address and port
+	 */
 	public AcceptConnectionHandler( ConfigParams params ) {
 		try {
 			init( params ) ;
@@ -44,6 +53,11 @@ public class AcceptConnectionHandler {
    
 	}
 	
+	/**
+	 * Accepts one connection and returns the accepted channel
+	 * @return accepted client SocketChannel 
+	 * @throws IOException when accepting goes wrong
+	 */
 	public SocketChannel accept() throws IOException {
 		
 	    selector.select();

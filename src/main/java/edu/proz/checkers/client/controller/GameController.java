@@ -16,6 +16,11 @@ import edu.proz.checkers.client.view.GraphicBoard;
 import edu.proz.checkers.infrastructure.*;
 
 
+/**
+ * Command pattern created to process abstract messages according to their actual class 
+ * @author bartlomiej
+ *
+ */
 interface Command {	
 	
 	void process( Message msg );
@@ -23,6 +28,14 @@ interface Command {
 }
 
 
+/**
+ * Class responsible for controlling the state of the game; 
+ * is runnable as thread - includes the main loop of the game;
+ * includes message-processing methods and checkers logic rules;
+ * synchronized with runnable ConnectionController class using BlockingQueues
+ * 
+ *
+ */
 public class GameController implements Runnable {
 	
 	private final static int QUEUE_CAPACITY = 16;
@@ -38,6 +51,10 @@ public class GameController implements Runnable {
 	private LinkedList<Square> selectedSquares;
 	private LinkedList<Square> squaresPossibleToMove;
 
+	/*
+	 * 
+	 *
+	 */
 	private class CommandStartResponse implements Command
 	{
 		public void process( Message m)
@@ -105,6 +122,12 @@ public class GameController implements Runnable {
 		}
 	}
 	
+	
+	/**
+	 * GameController constructor; initializes BlockingQueues, methodMap and logic variables
+	 * 
+	 * @param player checkers logic player
+	 */
 	public GameController( Player player ) {
 		requestQueue = new LinkedBlockingQueue<Request>( QUEUE_CAPACITY );
 		responseQueue = new LinkedBlockingQueue<Response>( QUEUE_CAPACITY );
@@ -124,10 +147,20 @@ public class GameController implements Runnable {
 		squaresPossibleToMove = new LinkedList<Square>();
 	}
 	
+	/**
+	 * Returns initialized Request Queue - used by as an interface between both Controllers' threads
+	 * @return BlockingQueue of Requests
+	 * @see Request
+	 */
 	public BlockingQueue<Request>  getRequestQueue (){
 		return this.requestQueue;
 	}
 	
+	/**
+	 * Returns initialized Response Queue - used by as an interface between both Controllers' threads
+	 * @return BlockingQueue of Responses
+	 * @see Response
+	 */	
 	public BlockingQueue<Response>  getResponseQueue (){
 		return this.responseQueue;
 	}
@@ -138,7 +171,6 @@ public class GameController implements Runnable {
 		if( msg.getPlayerId() ==  Constants.PLAYER_TWO_ID.getValue() ) {
 			player.setIsMyTurn( true );
 			waitingForAction = true;
-			//można tu wyświetlić jakaś wiadomość żeby się ruszył
 		}else {
 			player.setIsMyTurn( false);
 			waitingForAction = false;
@@ -188,11 +220,17 @@ public class GameController implements Runnable {
 		System.exit(0);
 	}
 	
+	/** 
+	 * Overrides run method. Includes the main loop of the Controller's thread activity, which is repeatedly waiting for 
+	 * users action then sending the message of taken action to ConnectionController through RequestQueue then asking for Response 
+	 * from the server and processing it accordingly to its class
+	 * @see Request
+	 * @see Response
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override 
 	public void run( ) {
-		
-	//	makeStart();
-		
+			
 		while( !isOver ) {
 			try {
 				
@@ -234,12 +272,14 @@ public class GameController implements Runnable {
 		
 	}
 	
-	//called by a listener
 	private void makeMove( int from, int to ) {
 		Move move = new Move( player.getID(),from, to );
 		requestQueue.add(move);	
 	}
 	
+	/**
+	 * Makes the initial Message to server side and places it on the queue
+	 */
 	public void makeStart( ) {
 		
 		Start start = new Start( 0 );
@@ -253,6 +293,12 @@ public class GameController implements Runnable {
 		requestQueue.add(stop);
 	}
 	
+	
+	/**
+	 * Method responsible for taking a Response from the Response Queue and mapping its class to the proper method to process
+	 * a message of this class
+	 * @throws InterruptedException Polling on BlockingQueue can throw this exception
+	 */
 	public void processResponse() throws InterruptedException {
 		
 		Response msg = null;

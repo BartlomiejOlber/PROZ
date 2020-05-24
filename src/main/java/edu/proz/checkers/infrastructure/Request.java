@@ -4,6 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+/**
+ * Abstract Request class. Requests are sent from the client to server side.
+ * The annotations are necessary for Jackson ObjectMapper to correctly map polymorphic type to actual subclasses.
+ * @author bartlomiej
+ * @see Message
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({

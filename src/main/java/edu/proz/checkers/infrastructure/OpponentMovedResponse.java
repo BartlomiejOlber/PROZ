@@ -1,5 +1,11 @@
 package edu.proz.checkers.infrastructure;
 
+/**
+ *  Response subclass. Sent to the client asking for his opponent's move after the opponent has made one. Contains 
+ *  indexes describing the move.
+ * @author bartlomiej
+ * @see Response
+ */
 public class OpponentMovedResponse extends Response {
 
 	private int from;

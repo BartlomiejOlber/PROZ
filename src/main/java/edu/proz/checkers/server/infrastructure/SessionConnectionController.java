@@ -16,14 +16,23 @@ import edu.proz.checkers.Util;
 import edu.proz.checkers.infrastructure.*;
 
 
+/**
+ * Class responsible for exchanging messages with clients.
+ * Ment to be used by SessionController for sending and receiving messages.
+ * @author bartlomiej
+ */
 public class SessionConnectionController {
 	
-	Selector selector;
+	private Selector selector;
 	private Map<Integer, SocketChannel> clients;	
-	ObjectMapper mapper; //json parser	
+	private ObjectMapper mapper; //json parser	
 	private static final int BUFFER_SIZE = 128;
 	private static final int TIMEOUT = 1000;
 	
+	/**
+	 * Initializes selector and Jackson ObjectMapper used for serializing to JSON format and deserializing messages
+	 * @throws IOException when selector initialization goes wrong
+	 */
 	public SessionConnectionController()  throws IOException {
 		
 		clients = new HashMap<Integer, SocketChannel>();
@@ -32,6 +41,13 @@ public class SessionConnectionController {
 		
 	}
 	
+	/**
+	 * Registers client channel. Registered channels are to be used to exchange messages with clients
+	 * 
+	 * @param client Accepted channel to be registered in private selector
+	 * @param client_number client ID
+	 * @throws IOException when the channel passed cannot be registered to the selector
+	 */
 	public void addClient( SocketChannel client, int client_number )  throws IOException {
 		
 		clients.put(client_number, client);
@@ -39,6 +55,13 @@ public class SessionConnectionController {
 		
 	}
 	
+	/**
+	 * Method performs receiving of data if any data is to be read. Receiving no data from clients means that a connection
+	 * has been closed, then a Stop request is returned. 
+	 * @return polymorphic Request received from a client
+	 * @throws IOException when receiving messages goes wrong
+	 * @see Request
+	 */
 	public Request getRequest( ) throws IOException {
 		
 		
@@ -75,6 +98,10 @@ public class SessionConnectionController {
 	
 	}
 
+	/**  Serializes polymorphic Response to JSON format String and writes it to a channel depending on response player ID field 
+	 * @param response polymorphic response that is sent to client
+	 * @throws IOException when writing to a closed channel
+	 */
 	public void sendResponse( Response response ) throws IOException {
 		
 		ByteBuffer writeBuffer = ByteBuffer.allocate(BUFFER_SIZE);

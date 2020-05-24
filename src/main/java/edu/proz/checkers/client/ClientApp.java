@@ -11,6 +11,10 @@ import edu.proz.checkers.infrastructure.ConfigParams;
 
 import javax.swing.*;
 
+/**
+ * Client application class
+ *
+ */
 public class ClientApp extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -22,6 +26,10 @@ public class ClientApp extends JFrame {
 	// view
 	private GraphicBoard graphicBoard;
 
+	/**
+	 * Starts the client's application - initializes controllers, makes initial message exchange and starts both controllers threads
+	 * @param params contain address and port configuration
+	 */
 	public ClientApp( ConfigParams params ) {
 
 		try {

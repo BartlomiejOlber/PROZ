@@ -9,12 +9,21 @@ import edu.proz.checkers.server.*;
 
 
 
+/**
+ * Main class of the project
+ *
+ */
 public class Main {
 
+	/**
+	 * Loads configuration json file to a data transfer object and starts a client or server application
+	 * 
+	 * @param args used to tell whether to run server or client side
+	 */
 	public static void main(String[] args) {
 		
 		ConfigManager cm = new ConfigManager();
-		if( args[0].equals("client")) { //wolanie clientapp
+		if( args[0].equals("client")) { 
 
 			ConfigParams params = cm.load("/client_params.json");
 			ClientApp client = new ClientApp( params );
@@ -23,7 +32,7 @@ public class Main {
 			client.setVisible(true);
 			client.setLocation(250, 150);
 			client.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		}else { //wolanie serverapp
+		}else { 
 			
 			
 			ConfigParams params = cm.load("/server_params.json");
@@ -34,7 +43,7 @@ public class Main {
 			server.setTitle("Checkers Server");
 			server.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			
-			//start Connection
+		
 			server.start( );
 				
 

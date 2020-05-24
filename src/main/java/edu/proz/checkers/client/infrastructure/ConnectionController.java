@@ -16,6 +16,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.proz.checkers.infrastructure.*;
 
+/**
+ * Runnable Connection Controller class responsible for taking requests from the GameController and exchanging messages with the 
+ * server side
+ * 
+ * @author bartlomiej
+ *
+ */
 public class ConnectionController implements Runnable {
 	
 	//connection musthaves
@@ -28,9 +35,15 @@ public class ConnectionController implements Runnable {
 	private BlockingQueue<Request> requestQueue;
 	private BlockingQueue<Response> responseQueue;
 	
-	ObjectMapper mapper; //json parser
+	private ObjectMapper mapper; //json parser
 	private boolean endConnection;
 	
+	/**
+	 * Initializes its fields
+	 * @param requestQueue interface between controllers
+	 * @param responseQueue interface between controllers
+	 * @param params configuration settings of INet address and port
+	 */
 	public ConnectionController( BlockingQueue<Request> requestQueue, BlockingQueue<Response> responseQueue, ConfigParams params ) {
 		this.requestQueue = requestQueue;
 		this.responseQueue = responseQueue;
@@ -41,6 +54,14 @@ public class ConnectionController implements Runnable {
 		
 	}
 	
+	/**
+	 * ConnectionController's thread loop - takes pending messages on RequestQueue, sends them one by one to the server and awaits
+	 * a response message from the server, after receiving it, the controller puts the message on the ResponseQueue and repeats 
+	 * the operation until the end of the game
+	 *
+	 * 
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		
@@ -58,6 +79,10 @@ public class ConnectionController implements Runnable {
 	}
 	
 	
+	/**
+	 * Connects to the server side
+	 * @throws IOException when the initialization goes wrong
+	 */
 	public void establishConnection() throws IOException {
 		
 	      InetAddress hostIP = InetAddress.getByName(address);
@@ -113,6 +138,13 @@ public class ConnectionController implements Runnable {
 	}
 	
 	
+	/**
+	 * Essential method of the controller - takes a message from the RequestQueue (waits one second for it), sends it to server
+	 * and puts a response on ResponseQueue
+	 * 
+	 * @throws IOException when the messages exchange goes ill
+	 * @throws InterruptedException when interrupted on polling on the BlockingQueue
+	 */
 	public void processRequest() throws IOException, InterruptedException {
 		
 
