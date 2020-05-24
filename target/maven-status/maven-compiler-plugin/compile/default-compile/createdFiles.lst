@@ -26,6 +26,8 @@ edu/proz/checkers/server/controller/SessionController$CommandStart.class
 edu/proz/checkers/client/controller/GameController.class
 edu/proz/checkers/infrastructure/MoveResponse.class
 edu/proz/checkers/infrastructure/Response.class
+edu/proz/checkers/client/view/GraphicSquare.class
+edu/proz/checkers/client/view/GraphicBoard.class
 edu/proz/checkers/infrastructure/Request.class
 edu/proz/checkers/client/controller/GameController$CommandOpponentMovedResponse.class
 edu/proz/checkers/infrastructure/ConfigManager.class

@@ -110,9 +110,9 @@ public class GameController implements Runnable {
 		methodMap.put(YouLose.class.getSimpleName(), new CommandYouLose());
 		//--------------------------
 		waitingForAction = false;
-		gameOver=false;
-		player.setIsMyTurn(true);
+		gameOver=false;	
 		this.player = player;
+		player.setIsMyTurn(true);
 	}
 	
 	public BlockingQueue<Request>  getRequestQueue (){
