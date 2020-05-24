@@ -18,6 +18,11 @@ public class Main {
 
 			ConfigParams params = cm.load("/client_params.json");
 			ClientApp client = new ClientApp( params );
+			client.setTitle("Checkers");
+			client.pack();
+			client.setVisible(true);
+			client.setLocation(250, 150);
+			client.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}else { //wolanie serverapp
 			
 			

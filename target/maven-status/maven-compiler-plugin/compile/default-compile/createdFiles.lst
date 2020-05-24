@@ -5,6 +5,7 @@ edu/proz/checkers/infrastructure/Stop.class
 edu/proz/checkers/infrastructure/WaitResponse.class
 edu/proz/checkers/client/controller/GameController$CommandYouWin.class
 edu/proz/checkers/client/PlayerIDHolder.class
+edu/proz/checkers/client/view/SquareMouseListener.class
 edu/proz/checkers/server/ServerApp.class
 edu/proz/checkers/infrastructure/StartResponse.class
 edu/proz/checkers/client/model/Square.class

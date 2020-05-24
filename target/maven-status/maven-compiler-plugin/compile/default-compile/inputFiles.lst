@@ -1,5 +1,6 @@
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/server/infrastructure/SessionConnectionController.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/ConfigManager.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/view/SquareMouseListener.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/Main.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/model/Board.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/server/model/Square.java
