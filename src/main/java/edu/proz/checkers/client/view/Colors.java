@@ -21,7 +21,7 @@ public enum Colors {
     /**
      * Color that player 1's pawns get when we hover over them with the mouse or click at them.
      */
-    P1_PAWN_TOGGLED(new Color(128,0,0)),
+    P1_PAWN_TOGGLED(new Color(128, 0, 0)),
 
     /**
      * Color that player 2's pawns get when we hover over them with the mouse or click at them.
@@ -36,28 +36,25 @@ public enum Colors {
     /**
      * Constant color used to paint the squares that you can not move around during the game.
      */
-    NOT_AVAILABLE_FOR_PAWNS(new Color(245, 245, 245)),
+    NOT_AVAILABLE_FOR_PAWNS(new Color(245, 222, 179)),
 
     /**
      * Constant color used to paint the 'K' letter on the king pawns.
      */
     KING_LETTER(new Color(241, 184, 45));
 
-    /**
-     * Color that each constant represents.
-     */
+
+    // color that each constant represents.
     private Color color;
 
-    /**
-     * Private constructor. We do not want to let someone create more constants in code.
-     * @param color Color that each constant represents.
-     */
+
+    // private constructor. We do not want to let someone create more constants in code.
     private Colors(Color color) {
         this.color = color;
     }
 
     /**
-     * Function that can be used to get the color value that each constant represents.
+     * Method that can be used to get the color value that each constant represents.
      * @return Color that each constant represents.
      */
     public Color getColor() {
@@ -65,7 +62,7 @@ public enum Colors {
     }
 
     /**
-     * Function that returns default color of pawns that belong to the player.
+     * Method that returns default color of pawns that belong to the player.
      * @param PLAYER_ID Constant value that represents ID of the player.
      * @return Default color of pawns that belong to the player.
      */
@@ -78,7 +75,7 @@ public enum Colors {
     }
 
     /**
-     * Function that returns color that pawns get when we hover over them with the mouse or click at them.
+     * Method that returns color that pawns get when we hover over them with the mouse or click at them.
      * @param PLAYER_ID Constant value that represents ID of the player.
      * @return Color that pawns get when we hover over them with the mouse or click at them.
      */
@@ -90,3 +87,4 @@ public enum Colors {
         return null;
     }
 }
+

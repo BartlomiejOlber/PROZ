@@ -1,16 +1,15 @@
 package edu.proz.checkers.client.model;
 
-import java.util.LinkedList;
-
 import edu.proz.checkers.Constants;
+
+import java.util.LinkedList;
 
 /**
  * Class that represents the whole board in model.
  */
 public class Board {
-    /**
-     * 2D array that holds all the squares the board consists of.
-     */
+
+    // 2D array that holds all the squares the board consists of.
     private Square[][] allSquaresOnBoard;
 
     /**
@@ -25,17 +24,14 @@ public class Board {
         assignPlayerIDToSquares();
     }
 
-    /**
-     * Function that sets which squares are possible to put the pawn on them.
-     */
+    // Method that sets which squares are possible to put the pawn on them.
     private void setSquaresAvailability() {
-        /**
-         * Variable that tells if you can move around this square during the game.
-         */
+
+        // variable that tells if you can move around this square during the game.
         boolean isAvailableForPawns;
 
-        /**
-         * Variable that holds the number of square.
+        /*
+         * variable that holds the number of square.
          * The numbering looks like this: 1 2 3 4 5 6 7 8
          *                                9 ...
          *                                ...
@@ -56,8 +52,8 @@ public class Board {
         }
     }
 
-    /**
-     * Function that assigns player's ID to appropriate squares.
+    /*
+     * Method that assigns player's ID to appropriate squares.
      * The squares with pawns will get appropriate player ID.
      */
     private void assignPlayerIDToSquares() {
@@ -71,24 +67,18 @@ public class Board {
                 if (allSquaresOnBoard[y][x].getIsAvailableForPawns())
                     allSquaresOnBoard[y][x].setPlayerID(Constants.PLAYER_TWO_ID.getValue());
     }
-    /**
-     * Function to get the total number of squares on board.
-     * @return Total number of squares on board.
-     */
-    public int getNumberOfSquaresOnBoard() {
-        return allSquaresOnBoard.length;
-    }
 
     /**
-     * Function to get the 2D array of squares on board.
+     * Method to get the 2D array of squares on board.
      * @return 2D array that contain all squares on board.
      */
     public Square[][] getAllSquaresOnBoard() {
         return this.allSquaresOnBoard;
     }
 
-    /**
-     * Function that adds front squares to the list of the squares possible to move if there are any options.
+    /*
+     * Method that adds front squares to the list of the squares possible to move if there are any options.
+     *
      * @param list                       List of squares. If there are more possible front squares, they will be added to the list.
      * @param rowThatCanBePossibleToMove Row that indicates the square that can be possible to move.
      * @param selectedCol                Column for which we check if there are front squares possible to move.
@@ -124,8 +114,8 @@ public class Board {
         }
     }
 
-    /**
-     * Function that adds the squares, in which our pawn will be if we do single cross jump, to the list
+    /*
+     * Method that adds the squares, in which our pawn will be if we do single cross jump, to the list
      * of squares possible to move.
      * @param list                       List of the squares possible to move.
      * @param rowThatCanBePossibleToMove Row that indicates the square in which our pawn will be if we do cross jump.
@@ -164,9 +154,8 @@ public class Board {
         }
     }
 
-    /**
-     * Function that tells if there is opponent to make cross jump available.
-     *
+    /*
+     * Method that tells if there is opponent to make cross jump available.
      * @param row Row for which we want to check if there is opponent's pawn.
      * @param col Column for which we want to check if there is opponent's pawn.
      * @return true - there is opponent to beat, false - there is not opponent to beat.
@@ -176,8 +165,7 @@ public class Board {
     }
 
     /**
-     * Function that returns list of squares the player is allowed to choose to move the pawn from selected square.
-     *
+     * Method that returns list of squares the player is allowed to choose to move the pawn from selected square.
      * @param selectedSquare The square for which we want to get the list of possible squares to move our pawn.
      * @return The list of squares that are possible to choose to move the pawn from selected square.
      */
