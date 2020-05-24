@@ -2,6 +2,12 @@ package edu.proz.checkers.server.model;
 
 import static edu.proz.checkers.Constants.*;
 
+/**
+ * Model checkers board. 8x8 Board that holds information of current game state.
+ * 
+ * @author bartlomiej
+ *
+ */
 public class Board {
 	
 	private static final int[] PLAYER_ONE_TABLE = {1, 3, 5, 7, 8, 10 ,12, 14, 17, 19, 21, 23 };
@@ -9,6 +15,9 @@ public class Board {
 	
 	private Square[][] board;
 	
+	/**
+	 * Initializes the board; assigns internal squares to players according to checkers logic
+	 */
 	public Board(){
 		board = new Square[NUMBER_OF_ROWS.getValue()][NUMBER_OF_COLS.getValue()];
 		
@@ -39,12 +48,20 @@ public class Board {
 		
 	}
 	
+	/**Square of given index getter
+	 * @param index square index
+	 * @return square 
+	 */
 	public Square getSquare( int index ) {
 		
 		return board[(index - 1)/NUMBER_OF_ROWS.getValue()][(index - 1)%NUMBER_OF_COLS.getValue()];
 	}
 
 	
+	/**
+	 * Checks whether there are still both players' pawns on the board
+	 * @return boolean indicating if the game is on or over
+	 */
 	public boolean isOn(){
 		
 		boolean playerOne = false;

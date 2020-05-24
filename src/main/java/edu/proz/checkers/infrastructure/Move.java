@@ -1,7 +1,13 @@
 package edu.proz.checkers.infrastructure;
 
 
-//transfer data object
+/**
+ *Request subclass. Sent to server after a client has made a checkers move. Contains indexes of the square the move started from
+ *and the square the move finished on 
+ *
+ * @author bartlomiej
+ *@see Request
+ */
 public class Move extends Request {
 	
 	private int from;

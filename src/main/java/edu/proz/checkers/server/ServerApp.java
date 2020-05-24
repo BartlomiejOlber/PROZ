@@ -15,6 +15,11 @@ import edu.proz.checkers.server.controller.SessionController;
 import edu.proz.checkers.server.infrastructure.AcceptConnectionHandler;
 import edu.proz.checkers.server.infrastructure.SessionConnectionController;
 
+/**
+ * Server application main class. Sets a graphic frame printing information logs.
+ * @author bartlomiej
+ *
+ */
 public class ServerApp extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -26,6 +31,10 @@ public class ServerApp extends JFrame {
 	int sessionNo;
 	private static AcceptConnectionHandler acceptor;
 	
+	/**
+	 * Starts a new frame and the controller responsible for accepting connections
+	 * @param params configuration DTO
+	 */
 	public ServerApp(ConfigParams params){
 		
 		
@@ -42,6 +51,16 @@ public class ServerApp extends JFrame {
 		acceptor = new AcceptConnectionHandler( params );
 	}	
 	
+	/**
+	 * Main loop of the application.
+	 * Initializes new two controllers responsible for connection and game logic,
+	 * accepts one client and exchanges initial messages with him, 
+	 * accepts another client and performs initial messages exchange with him,
+	 * starts a new session thread,
+	 * repeats the former steps until is closed 
+	 *
+	 * 
+	 */
 	public void start() {
 		
 		while(true) {

@@ -1,6 +1,7 @@
 package edu.proz.checkers.server.controller;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 
 import edu.proz.checkers.server.infrastructure.SessionConnectionController;
@@ -12,11 +13,22 @@ import java.util.Map;
 import edu.proz.checkers.Constants;
 import edu.proz.checkers.infrastructure.*;
 
+/**
+ * Command pattern created to process abstract requests according to their actual class 
+ * @author bartlomiej
+ *
+ */
 interface Command {	
 	Response process( Message msg );
 }
 
 
+/**
+ * Game session controller class. Runnable. Processes clients' requests, updates game state and provides responds for the clients.
+ * 
+ * @author bartlomiej
+ *
+ */
 public class SessionController implements Runnable{
 	
 	private Map<String, Command> methodMap;
@@ -31,6 +43,11 @@ public class SessionController implements Runnable{
 	private int to;
 
 	
+	/**Initializes methodMap, which is the main tool for processing messages and providing responses;
+	 * initializes session game logic variables
+	 * 
+	 * @param scc Each session controller has its own connection controller that is used to send the responses to clients
+	 */
 	public SessionController( SessionConnectionController scc) {
 		methodMap = new HashMap<String, Command>();
 		methodMap.put(Start.class.getSimpleName(), new CommandStart());
@@ -45,6 +62,11 @@ public class SessionController implements Runnable{
 		
 	}
 	
+	/**
+	 * Thread activity loop - get a message from a client; get response for the request based on the game state;
+	 * send it to the client
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		try {
@@ -149,6 +171,11 @@ public class SessionController implements Runnable{
 		
 	}
 	
+	/**
+	 * polymorphic request is mapped to a Command designed to process the actual subtype of the request and processed. 
+	 * @param request abstract request
+	 * @return polymorphic response based on the current game state
+	 */
 	public Response getResponse( Request request ) {
 				
 		return methodMap.get( request.getClass().getSimpleName() ).process( request );

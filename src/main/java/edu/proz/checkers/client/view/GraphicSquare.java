@@ -81,6 +81,7 @@ public class GraphicSquare extends JPanel {
      * Method that sets two listeners:
      * - the listener that is responsible for mouse motions in the square area,
      * - the listener that is responsible for mouse clicks in the square area.
+     * @param MyListener listener 
      */
     public void setListener(SquareMouseListener MyListener) {
         if (square.getIsPossibleToMove() || square.getPlayerID() == PlayerIDHolder.PLAYER_ID.getValue()) {

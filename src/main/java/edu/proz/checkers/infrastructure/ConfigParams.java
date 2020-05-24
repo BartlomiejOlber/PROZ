@@ -1,5 +1,10 @@
 package edu.proz.checkers.infrastructure;
 
+/**
+ * Data transfer object containing INet address and port; includes only primitive getters and setters
+ * @author bartlomiej
+ *
+ */
 public class ConfigParams {
 
 	private int port;
