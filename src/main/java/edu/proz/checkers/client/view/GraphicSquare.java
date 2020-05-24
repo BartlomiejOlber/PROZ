@@ -1,11 +1,12 @@
 package edu.proz.checkers.client.view;
 
 import edu.proz.checkers.Constants;
+import edu.proz.checkers.client.PlayerIDHolder;
 import edu.proz.checkers.client.model.Square;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import javax.swing.JPanel;
 
 /**
  * Class that represents single square in GUI.
@@ -76,6 +77,19 @@ public class GraphicSquare extends JPanel {
         }
     }
 
+    /**
+     * Method that sets two listeners:
+     * - the listener that is responsible for mouse motions in the square area,
+     * - the listener that is responsible for mouse clicks in the square area.
+     */
+    public void setListener(SquareMouseListener MyListener) {
+        if (square.getIsPossibleToMove() || square.getPlayerID() == PlayerIDHolder.PLAYER_ID.getValue()) {
+            this.removeMouseListener(MyListener);
+            this.addMouseListener(MyListener);
+        }
+        else
+            this.removeMouseListener(MyListener);
+    }
 
     /**
      * Method that returns square from model that represents our view square.

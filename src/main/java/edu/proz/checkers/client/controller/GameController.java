@@ -8,9 +8,11 @@ import javax.swing.JOptionPane;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 import edu.proz.checkers.Constants;
 import edu.proz.checkers.client.model.*;
+import edu.proz.checkers.client.view.GraphicBoard;
 import edu.proz.checkers.infrastructure.*;
 
 
@@ -27,12 +29,15 @@ public class GameController implements Runnable {
 	private BlockingQueue<Request> requestQueue;
 	private BlockingQueue<Response> responseQueue;
 	private Map<String, Command> methodMap;
-	//--------------------------------
 	private Player player;	
 	private boolean waitingForAction;
-	private boolean gameOver;
+	private boolean isOver;
 
-	
+	private GraphicBoard graphicBoard;
+
+	private LinkedList<Square> selectedSquares;
+	private LinkedList<Square> squaresPossibleToMove;
+
 	private class CommandStartResponse implements Command
 	{
 		public void process( Message m)
@@ -41,8 +46,11 @@ public class GameController implements Runnable {
 			processStartResponse(start);
 		}
 	}
-	
-	
+
+	public void setGraphicBoard(GraphicBoard graphicBoard){
+		this.graphicBoard = graphicBoard;
+	}
+
 	private class CommandStopResponse implements Command
 	{
 		public void process( Message m)
@@ -108,11 +116,12 @@ public class GameController implements Runnable {
 		methodMap.put(MoveResponse.class.getSimpleName(), new CommandMoveResponse());
 		methodMap.put(YouWin.class.getSimpleName(), new CommandYouWin());
 		methodMap.put(YouLose.class.getSimpleName(), new CommandYouLose());
-		//--------------------------
 		waitingForAction = false;
-		gameOver=false;
-		player.setIsMyTurn(true);
+		isOver = false;
 		this.player = player;
+		player.setIsMyTurn(true);
+		selectedSquares = new LinkedList<Square>();
+		squaresPossibleToMove = new LinkedList<Square>();
 	}
 	
 	public BlockingQueue<Request>  getRequestQueue (){
@@ -139,8 +148,8 @@ public class GameController implements Runnable {
 	
 	private void processStopResponse( StopResponse msg) {
 		
-		gameOver = true;
-		JOptionPane.showMessageDialog(null, "GRATULUJE WYGRAL PAN PRZEZ WALKOWERA",
+		isOver = true;
+		JOptionPane.showMessageDialog(null, "You won by walkover",
 				"Information", JOptionPane.INFORMATION_MESSAGE, null);
 		System.exit(0);
 	}
@@ -153,16 +162,15 @@ public class GameController implements Runnable {
 		
 		player.setIsMyTurn(true);
 		waitingForAction = true;
-		updateReceivedInfo(msg.getFrom(), msg.getTo());
+		updateTheBoard(msg.getFrom(), msg.getTo());
 	}
 	
 	private void processYouWin( YouWin msg) {
 		
-		gameOver = true;
-		JOptionPane.showMessageDialog(null, "GRATULUJE WYGRAL PAN",
-				"Information", JOptionPane.INFORMATION_MESSAGE, null);
+		isOver = true;
+		JOptionPane.showMessageDialog(null, "You won the game!",
+				"Congratulations", JOptionPane.INFORMATION_MESSAGE, null);
 		System.exit(0);
-		//wyświetlić że wygrał
 	}
 	
 	private void processMoveResponse( MoveResponse msg) {
@@ -173,12 +181,11 @@ public class GameController implements Runnable {
 	
 	private void processYouLose( YouLose msg) {
 		
-		updateReceivedInfo(msg.getFrom(), msg.getTo());
-		gameOver = true;
-		JOptionPane.showMessageDialog(null, "GRATULUJE PRZEGRAL PAN",
+		updateTheBoard(msg.getFrom(), msg.getTo());
+		isOver = true;
+		JOptionPane.showMessageDialog(null, "You lost the game.",
 				"Information", JOptionPane.INFORMATION_MESSAGE, null);
 		System.exit(0);
-		//można wyświetlić mu że przegrał
 	}
 	
 	@Override 
@@ -186,7 +193,7 @@ public class GameController implements Runnable {
 		
 	//	makeStart();
 		
-		while( !gameOver ) {
+		while( !isOver ) {
 			try {
 				
 				if(waitingForAction)
@@ -257,10 +264,147 @@ public class GameController implements Runnable {
 
 
 	}
-	
-	//------------------------------
-	private void updateReceivedInfo( int from, int to ) {
-		
+
+	/*
+	 * If move performed by the player is a cross jump (we know it because numbers of row that squares
+	 * "from" and "to" have fulfill the condition that the absolute value of their difference equals 2),
+	 * the function removes the pawn from the beaten square.
+	 * @param from Square from which the move starts.
+	 * @param to Square on which the move ends.
+	 */
+	private void crossJumpCaseCheck(Square from, Square to) {
+		// checking if the move we make is a cross jump
+		if (Math.abs(from.getRowNumber() - to.getRowNumber()) == 2) {
+			int middleCol = (from.getColNumber() + to.getColNumber()) / 2;
+			int middleRow = (from.getRowNumber() + to.getRowNumber()) / 2;
+
+			Square middleSquare = graphicBoard.getSquare((middleRow * Constants.NUMBER_OF_ROWS.getValue()) +
+					middleCol + 1);
+			middleSquare.setPlayerID(Constants.SQUARE_NOT_OCCUPIED.getValue());
+			if (middleSquare.isKing())
+				middleSquare.removeKing();
+		}
 	}
-	
+
+	/*
+	 * Method that is responsible for setting whether a pawn is a king.
+	 * @param from Square from which we move.
+	 * @param to Square to which we move.
+	 */
+	private void kingCaseCheck(Square from, Square to) {
+		// setting whether the pawn is a king
+		if (from.isKing()) {
+			to.setKing();
+			from.removeKing();
+		}
+		else if ((to.getRowNumber() == Constants.NUMBER_OF_ROWS.getValue() - 1 &&
+				to.getPlayerID() == Constants.PLAYER_ONE_ID.getValue()) ||
+				(to.getRowNumber() == 0 && to.getPlayerID() == Constants.PLAYER_TWO_ID.getValue()))
+			to.setKing();
+	}
+
+	/*
+	 * Method that updates player's board after getting infortmation from server.
+	 * @param from Number that indicates the square.
+	 * @param to Number that indicates the square.
+	 */
+	private void updateTheBoard(int from, int to) {
+		Square fromSquare = graphicBoard.getSquare(from);
+		Square toSquare = graphicBoard.getSquare(to);
+		toSquare.setPlayerID(fromSquare.getPlayerID());
+		fromSquare.setPlayerID(Constants.SQUARE_NOT_OCCUPIED.getValue());
+		crossJumpCaseCheck(fromSquare, toSquare);
+		kingCaseCheck(fromSquare, toSquare);
+		graphicBoard.repaintGraphicBoard();
+	}
+
+	/**
+	 * Method that clears the list of selected squares and squares possible to move and repaints the graphic board.
+	 */
+	public void clearSelectedAndPossibleToMove() {
+		for (Square square : selectedSquares)
+			square.setIsSelected(false);
+		selectedSquares.clear();
+
+		for (Square square : squaresPossibleToMove)
+			square.setIsPossibleToMove(false);
+		squaresPossibleToMove.clear();
+
+		// repainting the board in GUI
+		graphicBoard.repaintGraphicBoard();
+	}
+
+	/**
+	 * Method that allows us to perform the move.
+	 * @param from Square from which the move starts.
+	 * @param to Square on which the move ends.
+	 */
+	public void move(Square from, Square to){
+		to.setPlayerID(from.getPlayerID());
+		from.setPlayerID(Constants.SQUARE_NOT_OCCUPIED.getValue());
+
+		// checking cross jump
+		crossJumpCaseCheck(from, to);
+
+		// king case
+		kingCaseCheck(from, to);
+
+		// updating two lists of squares: selected and possible to move after making move in model
+		// and repainting the graphic board
+		clearSelectedAndPossibleToMove();
+
+		// move performed, we don't wait for player's action
+		waitingForAction = false;
+
+		makeMove( from.getID(), to.getID()  );
+	}
+
+	/*
+	 * Method that adds the square to the list of selected squares and refreshes the list of squares possible to move.
+	 * @param square Squares to be added.
+	 */
+	private void addSquareToSelectedSquares(Square square) {
+		square.setIsSelected(true);
+		selectedSquares.add(square);
+
+		// updating the list of the squares possible to move
+		squaresPossibleToMove.clear();
+		squaresPossibleToMove = graphicBoard.getSquaresPossibleToMove(square);
+
+		/*DEBUG for(Square square: squaresPossibleToMove){
+			System.out.println(square.getID());
+		}*/
+		// repainting the board in GUI
+		graphicBoard.repaintGraphicBoard();
+	}
+
+	/**
+	 * Method used in mouse listener to update the list of selected squares
+	 * and if the player selects the pawn and makes move by choosing appropriate square possible to move,
+	 * the function allows him to make move.
+	 * @param square Object that represents single square in model.
+	 */
+	public void selectTheSquare(Square square) {
+
+		if (selectedSquares.isEmpty())
+			addSquareToSelectedSquares(square);
+
+			//if one is already selected, check if it is possible move
+		else if (selectedSquares.size() >= 1) {
+			if (squaresPossibleToMove.contains(square))
+				move(selectedSquares.getFirst(), square);
+			else {
+				clearSelectedAndPossibleToMove();
+				addSquareToSelectedSquares(square);
+			}
+		}
+	}
+
+	/**
+	 * Method used in mouse listener that allows to check if it is the player's turn now.
+	 * @return Boolean value that indicates if it is the player's turn now.
+	 */
+	public boolean isThePlayersTurnNow() {
+		return player.getIsMyTurn();
+	}
 }

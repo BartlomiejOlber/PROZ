@@ -5,21 +5,50 @@ import javax.swing.JFrame;
 import edu.proz.checkers.client.controller.GameController;
 import edu.proz.checkers.client.infrastructure.ConnectionController;
 import edu.proz.checkers.client.model.Player;
+import edu.proz.checkers.client.view.GraphicBoard;
+import edu.proz.checkers.client.view.SquareMouseListener;
 import edu.proz.checkers.infrastructure.ConfigParams;
 
+import javax.swing.*;
+
 public class ClientApp extends JFrame {
-	
+
 	private static final long serialVersionUID = 1L;
-	Player player;
-	
+
+
+	// model
+	private Player player;
+
+	// view
+	private GraphicBoard graphicBoard;
+
 	public ClientApp( ConfigParams params ) {
-		init( params );
+
+		try {
+
+			String name = (String) JOptionPane.showInputDialog(null, "Enter your name to Connect", "Connect to Server",
+					JOptionPane.OK_CANCEL_OPTION);
+
+			if (name != null && name.length() > 0) {
+				player = new Player(name);
+
+				connect( params );
+
+			} else {
+				JOptionPane.showMessageDialog(null, "Please enter valid name", "Error", JOptionPane.ERROR_MESSAGE,
+						null);
+				System.exit(0);
+			}
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "Please enter valid IPv4-Address", "Error", JOptionPane.ERROR_MESSAGE,
+					null);
+			System.exit(0);
+		}
+
 	}
 
-	private void init( ConfigParams params ) {
-		
-		
-		//---------
+	private void connect( ConfigParams params ) {
+
 		GameController gc = new GameController( player );
 		ConnectionController cc = new ConnectionController( gc.getRequestQueue(), gc.getResponseQueue(), params );
 		try {
@@ -27,20 +56,25 @@ public class ClientApp extends JFrame {
 			cc.establishConnection();
 			cc.processRequest();
 			gc.processResponse();
-		}catch(Exception e ) {
-			System.err.print("unable to start game");
+		}
+		catch(Exception e) {
+			System.err.print("Unable to start game");
 			e.printStackTrace();
 		}
-		
-		setListeners(gc);
+
+		setup(gc);
 		new Thread( cc ).start();
 		new Thread( gc ).start();
-		
+
 	}
-	
-	
-	private void setListeners(GameController gc) {
-	
+
+	private void setup(GameController c) {
+		SquareMouseListener listener = new SquareMouseListener();
+		listener.setController(c);
+
+		graphicBoard = new GraphicBoard(listener);
+		c.setGraphicBoard(graphicBoard);
+		add(graphicBoard);
 	}
-	
 }
+

@@ -1,5 +1,6 @@
 package edu.proz.checkers.client.view;
 
+import edu.proz.checkers.client.PlayerIDHolder;
 import edu.proz.checkers.client.model.Board;
 import edu.proz.checkers.client.model.Square;
 import edu.proz.checkers.Constants;
@@ -21,13 +22,16 @@ public class GraphicBoard extends JPanel {
     // board from model.
     private Board boardModel;
 
+    // listening mouse clicks for squares.
+    private SquareMouseListener listener;
+
     // list of square GUI panels.
     private LinkedList<GraphicSquare> allGraphicSquaresOnGraphicBoard;
 
     // 2D array that is containing all the squares from model.
     private Square[][] allSquaresOnBoard;
 
-    public GraphicBoard() {
+    public GraphicBoard(SquareMouseListener listener) {
 
         setPreferredSize(panelSize);
 
@@ -38,23 +42,38 @@ public class GraphicBoard extends JPanel {
         // saving all the squares from model
         allSquaresOnBoard = boardModel.getAllSquaresOnBoard();
 
+        this.listener = listener;
+
         allGraphicSquaresOnGraphicBoard = new LinkedList<GraphicSquare>();
 
         initializeGraphicSquares();
     }
 
-    /*
+    /**
      * Method that initializes all the square panels in our GUI board.
      */
     private void initializeGraphicSquares() {
         for (int y = 0; y < Constants.NUMBER_OF_ROWS.getValue(); ++y) {
             for (int x = 0; x < Constants.NUMBER_OF_COLS.getValue(); ++x) {
                 GraphicSquare gSquare = new GraphicSquare(allSquaresOnBoard[y][x]);
+                // adding listener to the squares on which we can move and which belong to us
+                if (gSquare.getSquare().getIsPossibleToMove() || gSquare.getSquare().getPlayerID() == PlayerIDHolder.PLAYER_ID.getValue())
+                    gSquare.addMouseListener(listener);
 
                 allGraphicSquaresOnGraphicBoard.add(gSquare);
                 add(gSquare);
             }
         }
+    }
+
+    /**
+     * Method that refreshes listeners and repaints graphic board.
+     */
+    public void repaintGraphicBoard() {
+        for(GraphicSquare graphicSquare : allGraphicSquaresOnGraphicBoard)
+            graphicSquare.setListener(listener);
+
+        repaint();
     }
 
     /**
