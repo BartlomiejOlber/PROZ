@@ -10,10 +10,12 @@
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/PlayerIDHolder.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/infrastructure/ConnectionController.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/server/infrastructure/AcceptConnectionHandler.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/view/GraphicBoard.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/OpponentMovedResponse.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/GetOpponentEvent.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/Start.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/model/Square.java
+/home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/client/view/GraphicSquare.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/server/controller/SessionController.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/YouLose.java
 /home/bartlomiej/eclipse-workspace/checkers/src/main/java/edu/proz/checkers/infrastructure/MoveResponse.java
