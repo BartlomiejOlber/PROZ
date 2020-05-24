@@ -248,24 +248,10 @@ public class BoardTest {
         Square testArr[][] = testBoard.getAllSquaresOnBoard();
 
         testArr[6][3].setPlayerID(Constants.PLAYER_ONE_ID.getValue());
+        testArr[4][5].setPlayerID(Constants.PLAYER_TWO_ID.getValue());
+        testArr[4][1].setPlayerID(Constants.PLAYER_TWO_ID.getValue());
 
-        // when
-        LinkedList<Square> returnedSquares = testBoard.returnSquaresPossibleToMove(testArr[6][3]);
-
-        // then
-        // the first returned square should have ID = 38, rowNumber = 4, colNumber = 5, isAvailableForPawns = true
-        assertEquals(38, returnedSquares.getFirst().getID());
-        assertEquals(4, returnedSquares.getFirst().getRowNumber());
-        assertEquals(5, returnedSquares.getFirst().getColNumber());
-        assertEquals(true, returnedSquares.getFirst().getIsAvailableForPawns());
-
-        // the second returned square should have ID = 38, rowNumber = 4, colNumber = 1, isAvailableForPawns = true
-        assertEquals(34, returnedSquares.get(1).getID());
-        assertEquals(4, returnedSquares.get(1).getRowNumber());
-        assertEquals(1, returnedSquares.get(1).getColNumber());
-        assertEquals(true, returnedSquares.get(1).getIsAvailableForPawns());
-
-        // only two possible squares to move
-        assertEquals(2, returnedSquares.size());
+        // when + then
+        assertTrue(testBoard.returnSquaresPossibleToMove(testArr[6][3]).isEmpty());
     }
 }
