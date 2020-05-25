@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 /**
  * Abstract Request class. Requests are sent from the client to server side.
  * The annotations are necessary for Jackson ObjectMapper to correctly map polymorphic type to actual subclasses.
+ * <img src="doc-files/edu.proz.checkers.infrastructure.png" alt="Messages">
  * @author bartlomiej
  * @see Message
  */

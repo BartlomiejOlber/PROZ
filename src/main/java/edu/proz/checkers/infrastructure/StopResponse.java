@@ -2,6 +2,7 @@ package edu.proz.checkers.infrastructure;
 
 /**
  *  Response subclass. Sent to a client when his opponent has left the game.
+ *  <img src="doc-files/edu.proz.checkers.infrastructure.png" alt="Messages">
  * @author bartlomiej
  * @see Response
  */

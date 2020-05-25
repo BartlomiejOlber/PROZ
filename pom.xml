@@ -4,7 +4,7 @@
 
   <groupId>edu.proz</groupId>
   <artifactId>checkers</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>checkers</name>
@@ -102,7 +102,20 @@
             	<configuration>
                		<source>1.8</source>
                 	<target>1.8</target>
-            	</configuration>
+                 <aggregate>true</aggregate>
+            	 <show>private</show>
+            	 <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+            	 <docletArtifact>
+                 	<groupId>org.umlgraph</groupId>
+                 	<artifactId>doclet</artifactId>
+                	<version>5.1</version>
+            	 </docletArtifact>
+            	 <additionalparam>
+                	-inferrel -attributes -types -visibility -inferdep -quiet -hide java.* -collpackages java.util.* -qualify -postfixpackage
+                	-nodefontsize 9
+                	-nodefontpackagesize 7
+            	 </additionalparam>
+            	 </configuration>
         	</plugin>
         </plugins>
 

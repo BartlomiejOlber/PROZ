@@ -15,6 +15,7 @@ import edu.proz.checkers.infrastructure.*;
 
 /**
  * Command pattern created to process abstract requests according to their actual class 
+ * <img src="doc-files/edu.proz.checkers.server.controller.png" alt="Command">
  * @author bartlomiej
  *
  */
@@ -25,6 +26,8 @@ interface Command {
 
 /**
  * Game session controller class. Runnable. Processes clients' requests, updates game state and provides responds for the clients.
+ * Contains private Command-type classes for processing polymorphic messages. 
+ * <img src="doc-files/edu.proz.checkers.server.controller.png" alt="Command">
  * 
  * @author bartlomiej
  *

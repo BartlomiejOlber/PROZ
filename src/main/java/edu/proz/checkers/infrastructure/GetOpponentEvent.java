@@ -2,6 +2,7 @@ package edu.proz.checkers.infrastructure;
 
 /**
  * Request subclass sent by a client awaiting his opponent's move
+ * <img src="doc-files/edu.proz.checkers.infrastructure.png" alt="Messages">
  * @author bartlomiej
  *@see Request
  */

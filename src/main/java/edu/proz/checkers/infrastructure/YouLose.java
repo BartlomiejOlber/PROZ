@@ -2,6 +2,7 @@ package edu.proz.checkers.infrastructure;
 /**
  *  Response subclass. Sent to the client asking for his opponent's move after the opponent has made a winning move. Contains 
  *  indexes describing the move.
+ *  <img src="doc-files/edu.proz.checkers.infrastructure.png" alt="Messages">
  * @author bartlomiej
  * @see Response
  */

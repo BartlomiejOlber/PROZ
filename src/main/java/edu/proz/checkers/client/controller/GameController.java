@@ -18,6 +18,7 @@ import edu.proz.checkers.infrastructure.*;
 
 /**
  * Command pattern created to process abstract messages according to their actual class 
+ *  <img src="doc-files/edu.proz.checkers.client.controller.png" alt="Command">
  * @author bartlomiej
  *
  */
@@ -34,6 +35,7 @@ interface Command {
  * includes message-processing methods and checkers logic rules;
  * synchronized with runnable ConnectionController class using BlockingQueues
  * 
+ * <img src="doc-files/edu.proz.checkers.client.controller.png" alt="Command">
  *
  */
 public class GameController implements Runnable {
