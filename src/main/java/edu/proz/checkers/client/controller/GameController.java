@@ -66,10 +66,6 @@ public class GameController implements Runnable {
 		}
 	}
 
-	public void setGraphicBoard(GraphicBoard graphicBoard){
-		this.graphicBoard = graphicBoard;
-	}
-
 	private class CommandStopResponse implements Command
 	{
 		public void process( Message m)
@@ -123,8 +119,15 @@ public class GameController implements Runnable {
 			processYouLose(response);
 		}
 	}
-	
-	
+
+	/**
+	 * Method that assigns the graphic board given as an argument to the controller.
+	 * @param graphicBoard Graphic board that will be assigned to the controller.
+	 */
+	public void setGraphicBoard(GraphicBoard graphicBoard) {
+		this.graphicBoard = graphicBoard;
+	}
+
 	/**
 	 * GameController constructor; initializes BlockingQueues, methodMap and logic variables
 	 * 

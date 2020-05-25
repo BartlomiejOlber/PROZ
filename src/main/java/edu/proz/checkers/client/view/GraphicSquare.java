@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 /**
  * Class that represents single square in GUI.
+ * @see JPanel
  */
 public class GraphicSquare extends JPanel {
 
@@ -37,7 +38,10 @@ public class GraphicSquare extends JPanel {
     /**
      * Method used to paint the squares and pawns if the squares contain them.
      * @param g Special object that makes painting possible.
+     * @see JPanel#paintComponent(Graphics)
+     * @see Graphics2D
      */
+    @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2D = (Graphics2D)g;
         super.paintComponents(g2D);
