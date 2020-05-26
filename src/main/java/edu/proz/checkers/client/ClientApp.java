@@ -41,8 +41,8 @@ public class ClientApp extends JFrame implements ActionListener {
 
 		try {
 
-			String name = (String) JOptionPane.showInputDialog(null, "Enter your name to Connect", "Connect to Server",
-					JOptionPane.OK_CANCEL_OPTION);
+			String name = (String) JOptionPane.showInputDialog(null, "Enter your nickname to " +
+							"connect to server","Connect", JOptionPane.OK_CANCEL_OPTION);
 
 			if (name != null && name.length() > 0) {
 				player = new Player(name);
@@ -50,13 +50,13 @@ public class ClientApp extends JFrame implements ActionListener {
 				connect( params );
 
 			} else {
-				JOptionPane.showMessageDialog(null, "Please enter valid name", "Error", JOptionPane.ERROR_MESSAGE,
-						null);
+				JOptionPane.showMessageDialog(null, "Please enter correct name",
+						"Incorrect name", JOptionPane.ERROR_MESSAGE, null);
 				System.exit(0);
 			}
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "Please enter valid IPv4-Address", "Error", JOptionPane.ERROR_MESSAGE,
-					null);
+			JOptionPane.showMessageDialog(null, "Please enter correct IPv4 address",
+					"Incorrect IPv4 address", JOptionPane.ERROR_MESSAGE, null);
 			System.exit(0);
 		}
 
