@@ -22,13 +22,11 @@ public class Square {
     // boolean value that indicates if it is a type of square on which we can put pawns.
     private boolean isAvailableForPawns;
 
-
     // boolean value that indicates if we clicked mouse on this square.
     private boolean isSelected;
 
     // boolean value that indicates if we can put our pawn on this square.
     private boolean isPossibleToMove;
-
 
     // boolean value that indicated if there is a king on the square.
     private boolean isKing;

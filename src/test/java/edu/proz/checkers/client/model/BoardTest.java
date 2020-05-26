@@ -139,7 +139,7 @@ public class BoardTest {
     }
 
     @Test
-    public void returnSquaresPossibleToMoveTest_KingCanMoveInFourEmptySquares() {
+    public void returnSquaresPossibleToMoveTest_KingCanMoveInFourAdjacentEmptySquares() {
         // given
         Square testArr[][] = testBoard.getAllSquaresOnBoard();
 
@@ -179,7 +179,7 @@ public class BoardTest {
     }
 
     @Test
-    public void returnSquaresPossibleToMoveTest_DefaultPawnCannotMoveInFourEmptySquares() {
+    public void returnSquaresPossibleToMoveTest_DefaultPawnCanOnlyMoveInTwoSquaresWhenFourAdjacentEmpty() {
         // given
         Square testArr[][] = testBoard.getAllSquaresOnBoard();
 

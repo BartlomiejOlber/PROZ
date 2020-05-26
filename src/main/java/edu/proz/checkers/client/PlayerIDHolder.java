@@ -9,7 +9,6 @@ public enum PlayerIDHolder {
      */
     PLAYER_ID(0);
 
-
     // value of player's ID.
     private int value;
 

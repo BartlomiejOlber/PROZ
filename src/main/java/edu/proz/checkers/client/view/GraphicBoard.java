@@ -17,7 +17,7 @@ import javax.swing.*;
 public class GraphicBoard extends JPanel {
 
     // size of board in GUI
-    private Dimension panelSize = new Dimension(450,450);
+    private final Dimension panelSize = new Dimension(450,450);
 
     // board from model.
     private Board boardModel;

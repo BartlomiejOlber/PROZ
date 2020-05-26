@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
  */
 public class SquareMouseListener extends MouseAdapter {
 
-    // graphic square assigned to the listener
     private GraphicSquare graphicSquare;
     private GameController controller;
 
