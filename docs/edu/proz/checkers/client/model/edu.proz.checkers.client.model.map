@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./Player.html" title="edu.proz.checkers.client.model.Player" alt="" coords="16,17,72,42"/>
+<area shape="rect" id="node2_1" href="./Square.html" title="edu.proz.checkers.client.model.Square" alt="" coords="118,17,178,42"/>
+<area shape="rect" id="node3_2" href="./Board.html" title="edu.proz.checkers.client.model.Board" alt="" coords="224,17,277,42"/>
+</map>

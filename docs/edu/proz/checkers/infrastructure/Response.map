@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./StopResponse.html" title="edu.proz.checkers.infrastructure.StopResponse" alt="" coords="16,209,121,234"/>
+<area shape="rect" id="node2_1" href="./MoveResponse.html" title="edu.proz.checkers.infrastructure.MoveResponse" alt="" coords="167,209,277,234"/>
+<area shape="rect" id="node3_2" href="./Response.html" title="edu.proz.checkers.infrastructure.Response" alt="" coords="488,113,567,138"/>
+<area shape="rect" id="node4_3" href="./WaitResponse.html" title="edu.proz.checkers.infrastructure.WaitResponse" alt="" coords="323,209,428,234"/>
+<area shape="rect" id="node5_4" href="./StartResponse.html" title="edu.proz.checkers.infrastructure.StartResponse" alt="" coords="474,209,581,234"/>
+<area shape="rect" id="node6_5" href="./YouLose.html" title="edu.proz.checkers.infrastructure.YouLose" alt="" coords="627,209,697,234"/>
+<area shape="rect" id="node8_6" href="./YouWin.html" title="edu.proz.checkers.infrastructure.YouWin" alt="" coords="743,209,808,234"/>
+<area shape="rect" id="node9_7" href="./OpponentMovedResponse.html" title="edu.proz.checkers.infrastructure.OpponentMovedResponse" alt="" coords="854,209,1027,234"/>
+<area shape="rect" id="node7_8" href="./Message.html" title="edu.proz.checkers.infrastructure.Message" alt="" coords="491,17,563,42"/>
+</map>

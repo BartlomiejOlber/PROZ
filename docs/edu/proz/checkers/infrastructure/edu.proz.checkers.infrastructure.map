@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./Start.html" title="edu.proz.checkers.infrastructure.Start" alt="" coords="1074,209,1122,234"/>
+<area shape="rect" id="node2_1" href="./StopResponse.html" title="edu.proz.checkers.infrastructure.StopResponse" alt="" coords="16,209,121,234"/>
+<area shape="rect" id="node3_2" href="./MoveResponse.html" title="edu.proz.checkers.infrastructure.MoveResponse" alt="" coords="167,209,277,234"/>
+<area shape="rect" id="node4_3" href="./Stop.html" title="edu.proz.checkers.infrastructure.Stop" alt="" coords="1171,209,1217,234"/>
+<area shape="rect" id="node5_4" href="./GetOpponentEvent.html" title="edu.proz.checkers.infrastructure.GetOpponentEvent" alt="" coords="1265,209,1395,234"/>
+<area shape="rect" id="node6_5" href="./Response.html" title="edu.proz.checkers.infrastructure.Response" alt="" coords="556,113,635,138"/>
+<area shape="rect" id="node7_6" href="./WaitResponse.html" title="edu.proz.checkers.infrastructure.WaitResponse" alt="" coords="323,209,428,234"/>
+<area shape="rect" id="node8_7" href="./StartResponse.html" title="edu.proz.checkers.infrastructure.StartResponse" alt="" coords="474,209,581,234"/>
+<area shape="rect" id="node10_8" href="./YouLose.html" title="edu.proz.checkers.infrastructure.YouLose" alt="" coords="627,209,697,234"/>
+<area shape="rect" id="node13_9" href="./YouWin.html" title="edu.proz.checkers.infrastructure.YouWin" alt="" coords="743,209,808,234"/>
+<area shape="rect" id="node16_10" href="./OpponentMovedResponse.html" title="edu.proz.checkers.infrastructure.OpponentMovedResponse" alt="" coords="854,209,1027,234"/>
+<area shape="rect" id="node9_11" href="./Move.html" title="edu.proz.checkers.infrastructure.Move" alt="" coords="1441,209,1493,234"/>
+<area shape="rect" id="node11_12" href="./ConfigManager.html" title="edu.proz.checkers.infrastructure.ConfigManager" alt="" coords="943,17,1051,42"/>
+<area shape="rect" id="node12_13" href="./Message.html" title="edu.proz.checkers.infrastructure.Message" alt="" coords="825,17,897,42"/>
+<area shape="rect" id="node15_14" href="./Request.html" title="edu.proz.checkers.infrastructure.Request" alt="" coords="1160,113,1228,138"/>
+<area shape="rect" id="node14_15" href="./ConfigParams.html" title="edu.proz.checkers.infrastructure.ConfigParams" alt="" coords="1096,17,1199,42"/>
+</map>

@@ -1,0 +1,11 @@
+edu.proz.checkers
+edu.proz.checkers.client
+edu.proz.checkers.client.controller
+edu.proz.checkers.client.infrastructure
+edu.proz.checkers.client.model
+edu.proz.checkers.client.view
+edu.proz.checkers.infrastructure
+edu.proz.checkers.server
+edu.proz.checkers.server.controller
+edu.proz.checkers.server.infrastructure
+edu.proz.checkers.server.model

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./Command.html" title="edu.proz.checkers.server.controller.Command" alt="" coords="261,11,345,53"/>
+<area shape="rect" id="node3_1" href="./SessionController.CommandStart.html" title="edu.proz.checkers.server.controller.SessionController.CommandStart" alt="" coords="16,118,124,143"/>
+<area shape="rect" id="node4_2" href="./SessionController.CommandMove.html" title="edu.proz.checkers.server.controller.SessionController.CommandMove" alt="" coords="170,118,282,143"/>
+<area shape="rect" id="node5_3" href="./SessionController.CommandStop.html" title="edu.proz.checkers.server.controller.SessionController.CommandStop" alt="" coords="327,118,434,143"/>
+<area shape="rect" id="node6_4" href="./SessionController.CommandGetOpponentEvent.html" title="edu.proz.checkers.server.controller.SessionController.CommandGetOpponentEvent" alt="" coords="480,118,671,143"/>
+<area shape="rect" id="node2_5" href="./SessionController.html" title="edu.proz.checkers.server.controller.SessionController" alt="" coords="391,19,514,45"/>
+</map>

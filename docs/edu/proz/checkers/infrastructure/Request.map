@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./Start.html" title="edu.proz.checkers.infrastructure.Start" alt="" coords="17,209,65,234"/>
+<area shape="rect" id="node2_1" href="./Stop.html" title="edu.proz.checkers.infrastructure.Stop" alt="" coords="114,209,161,234"/>
+<area shape="rect" id="node3_2" href="./GetOpponentEvent.html" title="edu.proz.checkers.infrastructure.GetOpponentEvent" alt="" coords="208,209,339,234"/>
+<area shape="rect" id="node4_3" href="./Move.html" title="edu.proz.checkers.infrastructure.Move" alt="" coords="385,209,437,234"/>
+<area shape="rect" id="node5_4" href="./Message.html" title="edu.proz.checkers.infrastructure.Message" alt="" coords="169,17,241,42"/>
+<area shape="rect" id="node6_5" href="./Request.html" title="edu.proz.checkers.infrastructure.Request" alt="" coords="171,113,239,138"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./Command.html" title="edu.proz.checkers.client.controller.Command" alt="" coords="760,11,844,53"/>
+<area shape="rect" id="node2_1" href="./GameController.CommandStartResponse.html" title="edu.proz.checkers.client.controller.GameController.CommandStartResponse" alt="" coords="16,118,183,143"/>
+<area shape="rect" id="node3_2" href="./GameController.CommandStopResponse.html" title="edu.proz.checkers.client.controller.GameController.CommandStopResponse" alt="" coords="229,118,394,143"/>
+<area shape="rect" id="node4_3" href="./GameController.CommandOpponentMovedResponse.html" title="edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse" alt="" coords="440,118,673,143"/>
+<area shape="rect" id="node5_4" href="./GameController.CommandWaitResponse.html" title="edu.proz.checkers.client.controller.GameController.CommandWaitResponse" alt="" coords="719,118,885,143"/>
+<area shape="rect" id="node6_5" href="./GameController.CommandMoveResponse.html" title="edu.proz.checkers.client.controller.GameController.CommandMoveResponse" alt="" coords="930,118,1101,143"/>
+<area shape="rect" id="node7_6" href="./GameController.CommandYouWin.html" title="edu.proz.checkers.client.controller.GameController.CommandYouWin" alt="" coords="1146,118,1271,143"/>
+<area shape="rect" id="node8_7" href="./GameController.CommandYouLose.html" title="edu.proz.checkers.client.controller.GameController.CommandYouLose" alt="" coords="1317,118,1447,143"/>
+</map>
