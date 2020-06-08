@@ -24,7 +24,7 @@ mvn clean install -U
 4. To start another game simultaneously or over again repeat 2 and 3
 
 ### Documentation and brief overview 
-Open doc/index.html in web browser
+Open docs/index.html in web browser
 	
 
 
