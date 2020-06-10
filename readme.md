@@ -24,7 +24,7 @@ In the project we also use Jackson ObjectMapper class as serializer/deserializer
 Following the principles taken from the MVC software design pattern, we divided our application into three cooperating modules.
         Below is a diagram that presents them, shows the classes contained in each module and describes the cooperation between the modules.
         
-###MVC diagram        
+### MVC diagram        
 ![MVC Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/MVC_diagram.PNG)
 
 ## Usage 
