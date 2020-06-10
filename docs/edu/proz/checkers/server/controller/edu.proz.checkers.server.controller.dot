@@ -10,49 +10,49 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.server.controller.Command
-	c441 [label=<<table title="edu.proz.checkers.server.controller.Command" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Command.html">
+	c432 [label=<<table title="edu.proz.checkers.server.controller.Command" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Command.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Command </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.server.controller.SessionController
-	c442 [label=<<table title="edu.proz.checkers.server.controller.SessionController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.html">
+	c433 [label=<<table title="edu.proz.checkers.server.controller.SessionController" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> SessionController </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.server.controller.SessionController.CommandStart
-	c443 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandStart" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandStart.html">
+	c434 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandStart" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandStart.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandStart </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.server.controller.SessionController.CommandMove
-	c444 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandMove" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandMove.html">
+	c435 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandMove" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandMove.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandMove </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.server.controller.SessionController.CommandStop
-	c445 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandStop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandStop.html">
+	c436 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandStop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandStop.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandStop </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.server.controller.SessionController.CommandGetOpponentEvent
-	c446 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandGetOpponentEvent" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandGetOpponentEvent.html">
+	c437 [label=<<table title="edu.proz.checkers.server.controller.SessionController.CommandGetOpponentEvent" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SessionController.CommandGetOpponentEvent.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandGetOpponentEvent </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.server.controller.SessionController.CommandStart implements edu.proz.checkers.server.controller.Command
-	c441:p -> c443:p [dir=back,arrowtail=empty,style=dashed];
+	c432:p -> c434:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.server.controller.SessionController.CommandMove implements edu.proz.checkers.server.controller.Command
-	c441:p -> c444:p [dir=back,arrowtail=empty,style=dashed];
+	c432:p -> c435:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.server.controller.SessionController.CommandStop implements edu.proz.checkers.server.controller.Command
-	c441:p -> c445:p [dir=back,arrowtail=empty,style=dashed];
+	c432:p -> c436:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.server.controller.SessionController.CommandGetOpponentEvent implements edu.proz.checkers.server.controller.Command
-	c441:p -> c446:p [dir=back,arrowtail=empty,style=dashed];
+	c432:p -> c437:p [dir=back,arrowtail=empty,style=dashed];
 }
 

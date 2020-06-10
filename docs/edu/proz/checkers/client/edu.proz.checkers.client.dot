@@ -10,13 +10,13 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.client.ClientApp
-	c119 [label=<<table title="edu.proz.checkers.client.ClientApp" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ClientApp.html">
+	c116 [label=<<table title="edu.proz.checkers.client.ClientApp" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ClientApp.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ClientApp </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.PlayerIDHolder
-	c120 [label=<<table title="edu.proz.checkers.client.PlayerIDHolder" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PlayerIDHolder.html">
+	c117 [label=<<table title="edu.proz.checkers.client.PlayerIDHolder" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PlayerIDHolder.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> PlayerIDHolder </td></tr>

@@ -10,18 +10,18 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.infrastructure.Stop
-	c912 [label=<<table title="edu.proz.checkers.infrastructure.Stop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Stop.html">
+	c844 [label=<<table title="edu.proz.checkers.infrastructure.Stop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Stop.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Stop </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Request
-	c923 [label=<<table title="edu.proz.checkers.infrastructure.Request" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Request.html">
+	c855 [label=<<table title="edu.proz.checkers.infrastructure.Request" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Request.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Request </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.infrastructure.Stop extends edu.proz.checkers.infrastructure.Request
-	c923:p -> c912:p [dir=back,arrowtail=empty];
+	c855:p -> c844:p [dir=back,arrowtail=empty];
 }
 

@@ -21,7 +21,7 @@ import edu.proz.checkers.infrastructure.ConfigParams;
 public class AcceptConnectionHandler {
 	
 	private int port; 
-	private static Selector selector;
+	private Selector selector;
 	private ServerSocketChannel myServerSocketChannel;
 	
 	

@@ -10,15 +10,15 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.client.view.SquareMouseListener
-	c2559 [label=<<table title="edu.proz.checkers.client.view.SquareMouseListener" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./SquareMouseListener.html">
+	c2459 [label=<<table title="edu.proz.checkers.client.view.SquareMouseListener" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./SquareMouseListener.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> SquareMouseListener </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.client.view.SquareMouseListener extends java.awt.event.MouseAdapter
-	c2574:p -> c2559:p [dir=back,arrowtail=empty];
+	c2474:p -> c2459:p [dir=back,arrowtail=empty];
 	// java.awt.event.MouseAdapter
-	c2574 [label=<<table title="java.awt.event.MouseAdapter" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/MouseAdapter.html">
+	c2474 [label=<<table title="java.awt.event.MouseAdapter" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/MouseAdapter.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> MouseAdapter </font></td></tr>
 		</table></td></tr>

@@ -10,50 +10,50 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.infrastructure.Start
-	c1459 [label=<<table title="edu.proz.checkers.infrastructure.Start" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Start.html">
+	c1380 [label=<<table title="edu.proz.checkers.infrastructure.Start" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Start.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Start </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Stop
-	c1462 [label=<<table title="edu.proz.checkers.infrastructure.Stop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Stop.html">
+	c1383 [label=<<table title="edu.proz.checkers.infrastructure.Stop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Stop.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Stop </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.GetOpponentEvent
-	c1463 [label=<<table title="edu.proz.checkers.infrastructure.GetOpponentEvent" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GetOpponentEvent.html">
+	c1384 [label=<<table title="edu.proz.checkers.infrastructure.GetOpponentEvent" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GetOpponentEvent.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> GetOpponentEvent </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Move
-	c1467 [label=<<table title="edu.proz.checkers.infrastructure.Move" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Move.html">
+	c1388 [label=<<table title="edu.proz.checkers.infrastructure.Move" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Move.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Move </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Message
-	c1470 [label=<<table title="edu.proz.checkers.infrastructure.Message" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Message.html">
+	c1391 [label=<<table title="edu.proz.checkers.infrastructure.Message" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Message.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Message </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Request
-	c1473 [label=<<table title="edu.proz.checkers.infrastructure.Request" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Request.html">
+	c1394 [label=<<table title="edu.proz.checkers.infrastructure.Request" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Request.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Request </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.infrastructure.Start extends edu.proz.checkers.infrastructure.Request
-	c1473:p -> c1459:p [dir=back,arrowtail=empty];
+	c1394:p -> c1380:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.Stop extends edu.proz.checkers.infrastructure.Request
-	c1473:p -> c1462:p [dir=back,arrowtail=empty];
+	c1394:p -> c1383:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.GetOpponentEvent extends edu.proz.checkers.infrastructure.Request
-	c1473:p -> c1463:p [dir=back,arrowtail=empty];
+	c1394:p -> c1384:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.Move extends edu.proz.checkers.infrastructure.Request
-	c1473:p -> c1467:p [dir=back,arrowtail=empty];
+	c1394:p -> c1388:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.Request extends edu.proz.checkers.infrastructure.Message
-	c1470:p -> c1473:p [dir=back,arrowtail=empty];
+	c1391:p -> c1394:p [dir=back,arrowtail=empty];
 }
 

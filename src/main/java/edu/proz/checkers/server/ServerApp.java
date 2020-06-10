@@ -29,7 +29,7 @@ public class ServerApp extends JFrame {
 	private JTextArea information;
 	private JLabel title;
 	int sessionNo;
-	private static AcceptConnectionHandler acceptor;
+	private AcceptConnectionHandler acceptor;
 	
 	/**
 	 * Starts a new frame and the controller responsible for accepting connections
