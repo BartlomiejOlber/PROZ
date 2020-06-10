@@ -1,6 +1,10 @@
 # Checkers Game Multiplayer
 ## Authors: Adrian Prorok, Bartlomiej Olber
 
+This is a classic multiplayer checkers game written in Java and created as the final project of the "Event driven programming" subject 
+at Warsaw University of Technology. The rules are very simple. The goal of each player is to beat all the opponent's pawns. 
+When the opponent has no pawn left, the player wins the game.
+
 Peer-to-peer game. Written using Model-View-Controller pattern. Communication between server and client sides is based on java.NIO
 	tools. User's interface is designed as event-driven.
       The event listener is waiting for user's actions and allows to handle them. Thanks to this, the other components of the program can obtain, 
