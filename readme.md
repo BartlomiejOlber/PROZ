@@ -9,6 +9,7 @@ Peer-to-peer game. Written using Model-View-Controller pattern. Communication be
 	Both sides are multithreaded. For client side threads synchronization BlockingQueues provided in Java Concurrent library. 
 	The sequence diagram below shows briefly the way Controllers'
         threads communicate with each other.
+        
 ### Sequence diagram:        
    	![Sequence Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/sequence_diagram.png)  
    	   
@@ -22,6 +23,7 @@ In the project we also use Jackson ObjectMapper class as serializer/deserializer
 
 Following the principles taken from the MVC software design pattern, we divided our application into three cooperating modules.
         Below is a diagram that presents them, shows the classes contained in each module and describes the cooperation between the modules.
+        
 ###MVC diagram        
 ![MVC Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/MVC_diagram.PNG)
 
