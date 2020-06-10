@@ -2,6 +2,6 @@
 <area shape="rect" id="node1_0" href="./Colors.html" title="edu.proz.checkers.client.view.Colors" alt="" coords="16,11,120,53"/>
 <area shape="rect" id="node2_1" href="./GraphicBoard.html" title="edu.proz.checkers.client.view.GraphicBoard" alt="" coords="165,19,264,45"/>
 <area shape="rect" id="node3_2" href="./GraphicSquare.html" title="edu.proz.checkers.client.view.GraphicSquare" alt="" coords="310,19,415,45"/>
-<area shape="rect" id="node4_3" href="./MyMenuBar.html" title="edu.proz.checkers.client.view.MyMenuBar" alt="" coords="461,19,550,45"/>
+<area shape="rect" id="node4_3" href="./MyMenuBar.html" title="edu.proz.checkers.client.view.OptionMenuBar" alt="" coords="461,19,550,45"/>
 <area shape="rect" id="node5_4" href="./SquareMouseListener.html" title="edu.proz.checkers.client.view.SquareMouseListener" alt="" coords="595,19,741,45"/>
 </map>

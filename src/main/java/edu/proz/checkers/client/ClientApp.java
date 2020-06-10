@@ -6,7 +6,7 @@ import edu.proz.checkers.client.controller.GameController;
 import edu.proz.checkers.client.infrastructure.ConnectionController;
 import edu.proz.checkers.client.model.Player;
 import edu.proz.checkers.client.view.GraphicBoard;
-import edu.proz.checkers.client.view.MyMenuBar;
+import edu.proz.checkers.client.view.OptionMenuBar;
 import edu.proz.checkers.client.view.SquareMouseListener;
 import edu.proz.checkers.infrastructure.ConfigParams;
 
@@ -30,7 +30,7 @@ public class ClientApp extends JFrame implements ActionListener {
 	private GraphicBoard graphicBoard;
 
 	// menu options
-	private MyMenuBar menuBar;
+	private OptionMenuBar menuBar;
 
 	/**
 	 * Starts the client's application - initializes controllers, makes initial message exchange and starts both controllers threads
@@ -89,7 +89,7 @@ public class ClientApp extends JFrame implements ActionListener {
 		graphicBoard = new GraphicBoard(listener);
 		c.setGraphicBoard(graphicBoard);
 		add(graphicBoard);
-		menuBar = new MyMenuBar();
+		menuBar = new OptionMenuBar();
 		menuBar.setActionListener(this);
 		menuBar.setKeyboardShortcuts();
 		setJMenuBar(menuBar);

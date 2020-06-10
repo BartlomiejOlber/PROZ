@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
  * Class that makes it possible to add menu bar in our gui frame
  * @see JMenuBar
  */
-public class MyMenuBar extends JMenuBar {
+public class OptionMenuBar extends JMenuBar {
 
     private JMenu gameOptions;
     private JMenuItem exit;
@@ -29,7 +29,7 @@ public class MyMenuBar extends JMenuBar {
     /**
      * Constructor that creates menu items and adds them to the bar.
      */
-    public MyMenuBar() {
+    public OptionMenuBar() {
         gameOptions = new JMenu(gameOptionsText);
         this.add(gameOptions);
         exit = new JMenuItem(exitText);
