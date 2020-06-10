@@ -6,9 +6,9 @@ at Warsaw University of Technology. The rules are very simple. The goal of each 
 When the opponent has no pawn left, the player wins the game.
 
 ### Screenshots from the game:
-![Screenshot_numer_1](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/Screenshot_numer_1.PNG)
-![Screenshot_numer_2](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/Screenshot_numer_2.PNG)
-![Screenshot_numer_3](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/Screenshot_numer_3.PNG)
+![Screenshot_number_1](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/Screenshot_number_1.PNG)
+![Screenshot_number_2](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/Screenshot_number_2.PNG)
+![Screenshot_number_3](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/Screenshot_number_3.PNG)
 
 Peer-to-peer game. Written using Model-View-Controller pattern. Communication between server and client sides is based on java.NIO
 	tools. User's interface is designed as event-driven.
