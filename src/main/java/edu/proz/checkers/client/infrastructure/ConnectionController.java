@@ -11,6 +11,8 @@ import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JOptionPane;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.proz.checkers.infrastructure.*;
@@ -71,7 +73,9 @@ public class ConnectionController implements Runnable {
 		
 			}
 		}catch( Exception e) {
-			System.err.print("messages exchange with the server side has failed");
+			JOptionPane.showMessageDialog(null, "Server connection error.",
+					"Information", JOptionPane.INFORMATION_MESSAGE, null);
+			System.exit(0);
 			e.printStackTrace();
 				
 		}
