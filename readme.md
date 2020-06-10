@@ -11,7 +11,7 @@ Peer-to-peer game. Written using Model-View-Controller pattern. Communication be
         threads communicate with each other.
         
 ### Sequence diagram:        
-   	![Sequence Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/sequence_diagram.png)  
+![Sequence Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/sequence_diagram.png)  
    	   
 In the project we also use Jackson ObjectMapper class as serializer/deserializer of Java objects to JSON format text and vice versa.
 	The Mapper is included as dependency in pom.xml file.
