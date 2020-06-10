@@ -10,67 +10,67 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.client.controller.Command
-	c1737 [label=<<table title="edu.proz.checkers.client.controller.Command" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Command.html">
+	c1653 [label=<<table title="edu.proz.checkers.client.controller.Command" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Command.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Command </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandStartResponse
-	c1739 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandStartResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandStartResponse.html">
+	c1655 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandStartResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandStartResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandStartResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandStopResponse
-	c1740 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandStopResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandStopResponse.html">
+	c1656 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandStopResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandStopResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandStopResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse
-	c1741 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandOpponentMovedResponse.html">
+	c1657 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandOpponentMovedResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandOpponentMovedResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandWaitResponse
-	c1742 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandWaitResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandWaitResponse.html">
+	c1658 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandWaitResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandWaitResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandWaitResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandMoveResponse
-	c1743 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandMoveResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandMoveResponse.html">
+	c1659 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandMoveResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandMoveResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandMoveResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandYouWin
-	c1744 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandYouWin" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandYouWin.html">
+	c1660 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandYouWin" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandYouWin.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandYouWin </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandYouLose
-	c1745 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandYouLose" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandYouLose.html">
+	c1661 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandYouLose" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GameController.CommandYouLose.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandYouLose </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.client.controller.GameController.CommandStartResponse implements edu.proz.checkers.client.controller.Command
-	c1737:p -> c1739:p [dir=back,arrowtail=empty,style=dashed];
+	c1653:p -> c1655:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.client.controller.GameController.CommandStopResponse implements edu.proz.checkers.client.controller.Command
-	c1737:p -> c1740:p [dir=back,arrowtail=empty,style=dashed];
+	c1653:p -> c1656:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse implements edu.proz.checkers.client.controller.Command
-	c1737:p -> c1741:p [dir=back,arrowtail=empty,style=dashed];
+	c1653:p -> c1657:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.client.controller.GameController.CommandWaitResponse implements edu.proz.checkers.client.controller.Command
-	c1737:p -> c1742:p [dir=back,arrowtail=empty,style=dashed];
+	c1653:p -> c1658:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.client.controller.GameController.CommandMoveResponse implements edu.proz.checkers.client.controller.Command
-	c1737:p -> c1743:p [dir=back,arrowtail=empty,style=dashed];
+	c1653:p -> c1659:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.client.controller.GameController.CommandYouWin implements edu.proz.checkers.client.controller.Command
-	c1737:p -> c1744:p [dir=back,arrowtail=empty,style=dashed];
+	c1653:p -> c1660:p [dir=back,arrowtail=empty,style=dashed];
 	//edu.proz.checkers.client.controller.GameController.CommandYouLose implements edu.proz.checkers.client.controller.Command
-	c1737:p -> c1745:p [dir=back,arrowtail=empty,style=dashed];
+	c1653:p -> c1661:p [dir=back,arrowtail=empty,style=dashed];
 }
 

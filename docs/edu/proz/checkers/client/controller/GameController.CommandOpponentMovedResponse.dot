@@ -10,19 +10,19 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.client.controller.Command
-	c1938 [label=<<table title="edu.proz.checkers.client.controller.Command" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Command.html">
+	c1850 [label=<<table title="edu.proz.checkers.client.controller.Command" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Command.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> Command </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse
-	c1942 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./GameController.CommandOpponentMovedResponse.html">
+	c1854 [label=<<table title="edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./GameController.CommandOpponentMovedResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> CommandOpponentMovedResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.client.controller.GameController.CommandOpponentMovedResponse implements edu.proz.checkers.client.controller.Command
-	c1938:p -> c1942:p [dir=back,arrowtail=empty,style=dashed];
+	c1850:p -> c1854:p [dir=back,arrowtail=empty,style=dashed];
 }
 

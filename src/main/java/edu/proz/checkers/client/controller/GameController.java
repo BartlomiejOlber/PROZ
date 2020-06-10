@@ -40,7 +40,7 @@ interface Command {
  */
 public class GameController implements Runnable {
 	
-	private final static int QUEUE_CAPACITY = 16;
+	private final int QUEUE_CAPACITY = 16;
 	private BlockingQueue<Request> requestQueue;
 	private BlockingQueue<Response> responseQueue;
 	private Map<String, Command> methodMap;

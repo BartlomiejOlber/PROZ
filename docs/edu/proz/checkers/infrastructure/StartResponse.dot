@@ -10,18 +10,18 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.infrastructure.Response
-	c1114 [label=<<table title="edu.proz.checkers.infrastructure.Response" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Response.html">
+	c1042 [label=<<table title="edu.proz.checkers.infrastructure.Response" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Response.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Response </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.StartResponse
-	c1116 [label=<<table title="edu.proz.checkers.infrastructure.StartResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./StartResponse.html">
+	c1044 [label=<<table title="edu.proz.checkers.infrastructure.StartResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./StartResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> StartResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.infrastructure.StartResponse extends edu.proz.checkers.infrastructure.Response
-	c1114:p -> c1116:p [dir=back,arrowtail=empty];
+	c1042:p -> c1044:p [dir=back,arrowtail=empty];
 }
 

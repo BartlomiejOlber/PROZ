@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.server.model.Board
-	c3074 [label=<<table title="edu.proz.checkers.server.model.Board" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Board.html">
+	c2964 [label=<<table title="edu.proz.checkers.server.model.Board" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Board.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Board </td></tr>
 		</table></td></tr>

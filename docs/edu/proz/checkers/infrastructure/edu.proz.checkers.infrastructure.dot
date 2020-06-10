@@ -10,126 +10,126 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.infrastructure.Start
-	c53 [label=<<table title="edu.proz.checkers.infrastructure.Start" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Start.html">
+	c51 [label=<<table title="edu.proz.checkers.infrastructure.Start" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Start.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Start </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.StopResponse
-	c54 [label=<<table title="edu.proz.checkers.infrastructure.StopResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StopResponse.html">
+	c52 [label=<<table title="edu.proz.checkers.infrastructure.StopResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StopResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> StopResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.MoveResponse
-	c55 [label=<<table title="edu.proz.checkers.infrastructure.MoveResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MoveResponse.html">
+	c53 [label=<<table title="edu.proz.checkers.infrastructure.MoveResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MoveResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MoveResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Stop
-	c56 [label=<<table title="edu.proz.checkers.infrastructure.Stop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Stop.html">
+	c54 [label=<<table title="edu.proz.checkers.infrastructure.Stop" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Stop.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Stop </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.GetOpponentEvent
-	c57 [label=<<table title="edu.proz.checkers.infrastructure.GetOpponentEvent" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GetOpponentEvent.html">
+	c55 [label=<<table title="edu.proz.checkers.infrastructure.GetOpponentEvent" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GetOpponentEvent.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> GetOpponentEvent </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Response
-	c58 [label=<<table title="edu.proz.checkers.infrastructure.Response" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Response.html">
+	c56 [label=<<table title="edu.proz.checkers.infrastructure.Response" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Response.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Response </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.WaitResponse
-	c59 [label=<<table title="edu.proz.checkers.infrastructure.WaitResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./WaitResponse.html">
+	c57 [label=<<table title="edu.proz.checkers.infrastructure.WaitResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./WaitResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> WaitResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.StartResponse
-	c60 [label=<<table title="edu.proz.checkers.infrastructure.StartResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StartResponse.html">
+	c58 [label=<<table title="edu.proz.checkers.infrastructure.StartResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StartResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> StartResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Move
-	c61 [label=<<table title="edu.proz.checkers.infrastructure.Move" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Move.html">
+	c59 [label=<<table title="edu.proz.checkers.infrastructure.Move" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Move.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Move </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.YouLose
-	c62 [label=<<table title="edu.proz.checkers.infrastructure.YouLose" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./YouLose.html">
+	c60 [label=<<table title="edu.proz.checkers.infrastructure.YouLose" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./YouLose.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> YouLose </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.ConfigManager
-	c63 [label=<<table title="edu.proz.checkers.infrastructure.ConfigManager" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ConfigManager.html">
+	c61 [label=<<table title="edu.proz.checkers.infrastructure.ConfigManager" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ConfigManager.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ConfigManager </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Message
-	c64 [label=<<table title="edu.proz.checkers.infrastructure.Message" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Message.html">
+	c62 [label=<<table title="edu.proz.checkers.infrastructure.Message" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Message.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Message </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.YouWin
-	c65 [label=<<table title="edu.proz.checkers.infrastructure.YouWin" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./YouWin.html">
+	c63 [label=<<table title="edu.proz.checkers.infrastructure.YouWin" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./YouWin.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> YouWin </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.ConfigParams
-	c66 [label=<<table title="edu.proz.checkers.infrastructure.ConfigParams" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ConfigParams.html">
+	c64 [label=<<table title="edu.proz.checkers.infrastructure.ConfigParams" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ConfigParams.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ConfigParams </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Request
-	c67 [label=<<table title="edu.proz.checkers.infrastructure.Request" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Request.html">
+	c65 [label=<<table title="edu.proz.checkers.infrastructure.Request" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Request.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Request </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.OpponentMovedResponse
-	c68 [label=<<table title="edu.proz.checkers.infrastructure.OpponentMovedResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OpponentMovedResponse.html">
+	c66 [label=<<table title="edu.proz.checkers.infrastructure.OpponentMovedResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OpponentMovedResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> OpponentMovedResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.infrastructure.Start extends edu.proz.checkers.infrastructure.Request
-	c67:p -> c53:p [dir=back,arrowtail=empty];
+	c65:p -> c51:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.StopResponse extends edu.proz.checkers.infrastructure.Response
-	c58:p -> c54:p [dir=back,arrowtail=empty];
+	c56:p -> c52:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.MoveResponse extends edu.proz.checkers.infrastructure.Response
-	c58:p -> c55:p [dir=back,arrowtail=empty];
+	c56:p -> c53:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.Stop extends edu.proz.checkers.infrastructure.Request
-	c67:p -> c56:p [dir=back,arrowtail=empty];
+	c65:p -> c54:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.GetOpponentEvent extends edu.proz.checkers.infrastructure.Request
-	c67:p -> c57:p [dir=back,arrowtail=empty];
+	c65:p -> c55:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.Response extends edu.proz.checkers.infrastructure.Message
-	c64:p -> c58:p [dir=back,arrowtail=empty];
+	c62:p -> c56:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.WaitResponse extends edu.proz.checkers.infrastructure.Response
-	c58:p -> c59:p [dir=back,arrowtail=empty];
+	c56:p -> c57:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.StartResponse extends edu.proz.checkers.infrastructure.Response
-	c58:p -> c60:p [dir=back,arrowtail=empty];
+	c56:p -> c58:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.Move extends edu.proz.checkers.infrastructure.Request
-	c67:p -> c61:p [dir=back,arrowtail=empty];
+	c65:p -> c59:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.YouLose extends edu.proz.checkers.infrastructure.Response
-	c58:p -> c62:p [dir=back,arrowtail=empty];
+	c56:p -> c60:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.YouWin extends edu.proz.checkers.infrastructure.Response
-	c58:p -> c65:p [dir=back,arrowtail=empty];
+	c56:p -> c63:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.Request extends edu.proz.checkers.infrastructure.Message
-	c64:p -> c67:p [dir=back,arrowtail=empty];
+	c62:p -> c65:p [dir=back,arrowtail=empty];
 	//edu.proz.checkers.infrastructure.OpponentMovedResponse extends edu.proz.checkers.infrastructure.Response
-	c58:p -> c68:p [dir=back,arrowtail=empty];
+	c56:p -> c66:p [dir=back,arrowtail=empty];
 }
 

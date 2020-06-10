@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.server.infrastructure.AcceptConnectionHandler
-	c2614 [label=<<table title="edu.proz.checkers.server.infrastructure.AcceptConnectionHandler" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AcceptConnectionHandler.html">
+	c2513 [label=<<table title="edu.proz.checkers.server.infrastructure.AcceptConnectionHandler" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AcceptConnectionHandler.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> AcceptConnectionHandler </td></tr>
 		</table></td></tr>

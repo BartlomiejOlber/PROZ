@@ -10,7 +10,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-import edu.proz.checkers.Util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,7 +29,7 @@ public class ConnectionController implements Runnable {
 	private SocketChannel myClientSocketChannel;
 	private int port;
 	private String address;
-	private static final int BUFFER_SIZE = 128;
+	private final int BUFFER_SIZE = 128;
 	//controllers' interface
 	private BlockingQueue<Request> requestQueue;
 	private BlockingQueue<Response> responseQueue;
@@ -106,7 +105,9 @@ public class ConnectionController implements Runnable {
 		     if (key.isReadable()) {	    	 
 				  myClientSocketChannel.read(readBuffer);
 				  readBuffer.flip();
-				  String data = Util.bytes_to_string(readBuffer);				  
+				  byte[] b = new byte[readBuffer.limit()];
+				  readBuffer.get(b);
+				  String data = new String(b);				  
 				  if (data.length() > 0) {
 					   return data;
 				  }
@@ -117,7 +118,6 @@ public class ConnectionController implements Runnable {
 	
 		return new String("ERR");
 	}
-	
 	
 	private void exchangeMessages( Message msg ) throws IOException {
 			

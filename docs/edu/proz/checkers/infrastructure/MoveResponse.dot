@@ -10,18 +10,18 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// edu.proz.checkers.infrastructure.MoveResponse
-	c861 [label=<<table title="edu.proz.checkers.infrastructure.MoveResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MoveResponse.html">
+	c794 [label=<<table title="edu.proz.checkers.infrastructure.MoveResponse" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MoveResponse.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MoveResponse </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// edu.proz.checkers.infrastructure.Response
-	c864 [label=<<table title="edu.proz.checkers.infrastructure.Response" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Response.html">
+	c797 [label=<<table title="edu.proz.checkers.infrastructure.Response" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Response.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Response </font></td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//edu.proz.checkers.infrastructure.MoveResponse extends edu.proz.checkers.infrastructure.Response
-	c864:p -> c861:p [dir=back,arrowtail=empty];
+	c797:p -> c794:p [dir=back,arrowtail=empty];
 }
 

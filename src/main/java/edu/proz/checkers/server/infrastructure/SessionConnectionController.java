@@ -12,7 +12,6 @@ import java.util.Set;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import edu.proz.checkers.Util;
 import edu.proz.checkers.infrastructure.*;
 
 
@@ -26,8 +25,8 @@ public class SessionConnectionController {
 	private Selector selector;
 	private Map<Integer, SocketChannel> clients;	
 	private ObjectMapper mapper; //json parser	
-	private static final int BUFFER_SIZE = 128;
-	private static final int TIMEOUT = 1000;
+	private final int BUFFER_SIZE = 128;
+	private final int TIMEOUT = 1000;
 	
 	/**
 	 * Initializes selector and Jackson ObjectMapper used for serializing to JSON format and deserializing messages
@@ -78,7 +77,9 @@ public class SessionConnectionController {
 				    	 SocketChannel clientChannel = (SocketChannel) key.channel();	
 						  clientChannel.read(readBuffer);
 						  readBuffer.flip();
-						  data = Util.bytes_to_string(readBuffer);					  
+						  byte[] b = new byte[readBuffer.limit()];
+						  readBuffer.get(b);
+						  data = new String(b);						  
 						  if (data.length() > 0) {
 							   Request request = mapper.readValue(data, Request.class);
 							   i.remove();

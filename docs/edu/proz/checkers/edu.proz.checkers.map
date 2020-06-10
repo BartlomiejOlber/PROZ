@@ -1,5 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./Util.html" title="edu.proz.checkers.Util" alt="" coords="21,19,61,45"/>
-<area shape="rect" id="node2_1" href="./Constants.html" title="edu.proz.checkers.Constants" alt="" coords="112,11,216,53"/>
-<area shape="rect" id="node3_2" href="./Main.html" title="edu.proz.checkers.Main" alt="" coords="263,19,311,45"/>
+<area shape="rect" id="node1_0" href="./Constants.html" title="edu.proz.checkers.Constants" alt="" coords="16,11,120,53"/>
+<area shape="rect" id="node2_1" href="./Main.html" title="edu.proz.checkers.Main" alt="" coords="167,19,215,45"/>
 </map>
