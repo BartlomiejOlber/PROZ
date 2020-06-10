@@ -9,14 +9,20 @@
 	Both sides are multithreaded. For client side threads synchronization BlockingQueues provided in Java Concurrent library. 
 	The sequence diagram below shows briefly the way Controllers'
         threads communicate with each other.
-   	![Sequence Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/sequence_diagram.png)     
+### Sequence diagram:        
+   	![Sequence Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/sequence_diagram.png)  
+   	   
 	In the project we also use Jackson ObjectMapper class as serializer/deserializer of Java objects to JSON format text and vice versa.
 	The Mapper is included as dependency in pom.xml file.
 	The communication between server and client sides is based on Message subsclasses. Polymorphic Requests and Responses are sent/received between the communicating sides. Below is shown Message class diagram. 
-	 ![Sequence Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/edu.proz.checkers.infrastructure.png)
+	
+### Messages class diagram:	
+	 ![Messages class diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/edu.proz.checkers.infrastructure.png)
+	 
 
 	Following the principles taken from the MVC software design pattern, we divided our application into three cooperating modules.
         Below is a diagram that presents them, shows the classes contained in each module and describes the cooperation between the modules.
+###MVC diagram        
 	![MVC Diagram](https://github.com/BartlomiejOlber/PROZ/blob/master/docs/doc-files/MVC_diagram.PNG)
 
 ## Usage 
